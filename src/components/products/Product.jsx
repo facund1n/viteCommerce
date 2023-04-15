@@ -1,11 +1,8 @@
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
 
 const Product = ({ data }) => {
   return (
@@ -35,11 +32,12 @@ const Product = ({ data }) => {
         <Button variant="dark" className="w-100">
           ADD TO{" "}
           <FontAwesomeIcon icon={faCartPlus} style={{ color: "#18c944" }} />
-        </Button>
-        <Button variant="outline-dark" className="w-100">
-          DETAILS
-        </Button>
-        {/* <Link to={`/products/${data.id}`}></Link> */}
+        </Button>{" "}
+        <Link to={`/products/${data.id}`}>
+          <Button variant="outline-dark" className="w-100">
+            DETAILS
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AllProductsGrid from "./AllProductsGrid";
 
-const AllProducts = () => {
+const AllProductsFetch = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,4 +17,4 @@ const AllProducts = () => {
   );
 };
 
-export default AllProducts;
+export default AllProductsFetch;

@@ -13,32 +13,51 @@ const OneProductDetail = ({ data }) => {
   return (
     <>
       <NavBar />
-      <Row lg={2} md={2} xs={1}>
-        <h3 className="text-center">{data.title}</h3>
-        <hr />
-        <Col>
-          <div>
-            <img
-              className="img-fluid mx-auto d-block h-100"
-              src={data.image}
-              alt={data.image}
-            />
-          </div>
-        </Col>
-        <Col className="d-flex flex-column aling-self-center">
-          <div className="">
-            <h6>{data.title}</h6>
-            <p>{data.description}</p>
-          </div>
-          <div className="aling-self-end">
-            <h2 className="text-center">${data.price}</h2>
-            <Button variant="dark" className="w-100">
-              ADD TO{" "}
-              <FontAwesomeIcon icon={faCartPlus} style={{ color: "#18c944" }} />
-            </Button>
-          </div>
-        </Col>
-      </Row>
+      <Container className="py-2">
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            boxShadow: "0 0 2px",
+            borderRadius: "3px",
+            padding: "0px",
+            margin: "0",
+            textOverflow: "ellipsis",
+          }}
+        >
+          <Row>
+            <Col>
+              <h3 className="text-center my-2">{data.title}</h3>
+              <hr />
+            </Col>
+          </Row>
+          <Row lg={2} md={2} xs={1}>
+            <Col>
+              <div>
+                <img
+                  className="img-fluid mx-auto d-block w-50 py-2"
+                  src={data.image}
+                  alt={data.image}
+                />
+              </div>
+            </Col>
+            <Col className="d-flex flex-column ">
+              <div className="">
+                <h3>{data.title}</h3>
+                <p>{data.description}</p>
+              </div>
+              <h2 className="text-center">${data.price}</h2>
+              <Button variant="dark" className="mx-auto w-50">
+                ADD TO{" "}
+                <FontAwesomeIcon
+                  icon={faCartPlus}
+                  style={{ color: "#18c944" }}
+                />
+              </Button>
+            </Col>
+          </Row>
+        </div>
+      </Container>
     </>
   );
 };

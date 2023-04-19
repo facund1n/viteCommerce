@@ -22,19 +22,19 @@ const Product = ({ data }) => {
           className="img-fluid mx-auto d-block h-100"
           src={data.image}
           alt={data.image}
-        />{" "}
+        />
         <hr />
-        <h6 className="text-center">{data.title}</h6>
+        <h5 className="text-center">{data.title}</h5>
       </div>
 
-      <div className="h-50 d-flex flex-column justify-content-end gap-1">
-        <h2 className="text-center">${data.price}</h2>
-        <Button variant="dark" className="w-100">
+      <div className="h-50 d-flex flex-column justify-content-end">
+        <h2 className="text-center font-price my-1">${data.price}</h2>
+        <Button variant="dark" className="w-100 my-1">
           ADD TO{" "}
           <FontAwesomeIcon icon={faCartPlus} style={{ color: "#18c944" }} />
-        </Button>{" "}
+        </Button>
         <Link to={`/products/${data.id}`}>
-          <Button variant="outline-dark" className="w-100">
+          <Button variant="outline-dark" className="w-100 my-1">
             DETAILS
           </Button>
         </Link>

@@ -1,5 +1,7 @@
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 function BrandExample() {
   return (
@@ -16,6 +18,11 @@ function BrandExample() {
             />{" "}
             Vite Commerce
           </Navbar.Brand>
+          <Navbar.Text>
+            <Link to="/checkout">
+              <Button variant="light">Cart</Button>
+            </Link>
+          </Navbar.Text>
         </Container>
       </Navbar>
     </>

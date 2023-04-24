@@ -11,7 +11,7 @@ import NavBar from "../NavBar";
 import ProductCounter from "../ProductCounter";
 import { useState } from "react";
 
-const OneProductDetail = ({ data }) => {
+const OneProductDetail = ({ data, addToCart }) => {
   const [counter, setCounter] = useState(1);
 
   return (
@@ -51,7 +51,11 @@ const OneProductDetail = ({ data }) => {
               <h2 className="text-center">${data.price}</h2>
               <div className="d-flex bg-light">
                 <ProductCounter setCounter={setCounter} counter={counter} />
-                <Button variant="dark" className="d-block mx-auto m-2 w-50">
+                <Button
+                  variant="dark"
+                  className="d-block mx-auto m-2 w-50"
+                  onClick={() => addToCart()}
+                >
                   ADD TO{" "}
                   <FontAwesomeIcon
                     icon={faCartPlus}

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const Product = ({ data }) => {
+const Product = ({ data, addToCart }) => {
   return (
     <div
       style={{
@@ -29,7 +29,11 @@ const Product = ({ data }) => {
 
       <div className="h-50 d-flex flex-column justify-content-end">
         <h2 className="text-center font-price my-1">${data.price}</h2>
-        <Button variant="dark" className="w-100 my-1">
+        <Button
+          variant="dark"
+          className="w-100 my-1"
+          onClick={() => addToCart()}
+        >
           ADD TO{" "}
           <FontAwesomeIcon icon={faCartPlus} style={{ color: "#18c944" }} />
         </Button>

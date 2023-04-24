@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AllProductsGrid from "./AllProductsGrid";
 
-const AllProductsFetch = () => {
+const AllProductsFetch = ({ addToCart }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const AllProductsFetch = () => {
 
   return (
     <>
-      <AllProductsGrid data={data} />
+      <AllProductsGrid data={data} addToCart={addToCart} />
     </>
   );
 };

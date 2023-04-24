@@ -8,8 +8,12 @@ import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 import NavBar from "../NavBar";
+import ProductCounter from "../ProductCounter";
+import { useState } from "react";
 
-const OneProductDetail = ({ data }) => {
+const OneProductDetail = ({ data, addToCart }) => {
+  const [counter, setCounter] = useState(1);
+
   return (
     <>
       <NavBar />
@@ -41,19 +45,24 @@ const OneProductDetail = ({ data }) => {
                 />
               </div>
             </Col>
-            <Col className="d-flex flex-column ">
-              <div className="">
-                <h3>{data.title}</h3>
-                <p>{data.description}</p>
-              </div>
+            <Col className="d-flex flex-column justify-content-center">
+              <h3>{data.title}</h3>
+              <p>{data.description}</p>
               <h2 className="text-center">${data.price}</h2>
-              <Button variant="dark" className="mx-auto w-50">
-                ADD TO{" "}
-                <FontAwesomeIcon
-                  icon={faCartPlus}
-                  style={{ color: "#18c944" }}
-                />
-              </Button>
+              <div className="d-flex bg-light">
+                <ProductCounter setCounter={setCounter} counter={counter} />
+                <Button
+                  variant="dark"
+                  className="d-block mx-auto m-2 w-50"
+                  onClick={() => addToCart()}
+                >
+                  ADD TO{" "}
+                  <FontAwesomeIcon
+                    icon={faCartPlus}
+                    style={{ color: "#18c944" }}
+                  />
+                </Button>
+              </div>
             </Col>
           </Row>
         </div>

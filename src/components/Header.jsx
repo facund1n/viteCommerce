@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <>
-      <div className="text-center bg-warning py-4">
+      <header className="text-center bg-warning py-4">
         <h1>Welcome</h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium
@@ -9,7 +9,7 @@ const Header = () => {
           architecto sit unde consequatur voluptatibus omnis, distinctio
           molestiae. Impedit veniam architecto quaerat?
         </p>
-      </div>
+      </header>
     </>
   );
 };

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import OneProductDetail from "./OneProductDetail";
 
-const OneProductFetch = () => {
+const OneProductFetch = ({ addToCart }) => {
   const [data, setData] = useState([]);
   const params = useParams();
 
@@ -14,7 +14,7 @@ const OneProductFetch = () => {
 
   return (
     <>
-      <OneProductDetail data={data} />
+      <OneProductDetail data={data} addToCart={addToCart} />
     </>
   );
 };

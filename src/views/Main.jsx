@@ -3,16 +3,16 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Container from "react-bootstrap/Container";
 
-function Main() {
+const Main = ({ addToCart }) => {
   return (
     <>
       <NavBar />
       <Container>
         <Header />
-        <AllProductsFetch />
+        <AllProductsFetch addToCart={addToCart} />
       </Container>
     </>
   );
-}
+};
 
 export default Main;

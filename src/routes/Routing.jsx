@@ -4,7 +4,7 @@ import Main from "../views/Main";
 import ErrorPage from "../components/ErrorPage";
 import CartDetail from "../views/CartDetail";
 
-const Routing = ({ addToCart, deleteCart, clearCart, modifyCart, totalQ }) => {
+const Routing = ({ addToCart, deleteOne, clearCart, modifyCart, totalQ }) => {
   return (
     <BrowserRouter>
       <Routes>

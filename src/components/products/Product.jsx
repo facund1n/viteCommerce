@@ -3,8 +3,13 @@ import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import ProductCounter from "../ProductCounter";
+
+import { useState } from "react";
 
 const Product = ({ data, addToCart }) => {
+  const [counter, setCounter] = useState(1);
+
   return (
     <div
       style={{
@@ -29,10 +34,18 @@ const Product = ({ data, addToCart }) => {
 
       <div className="h-50 d-flex flex-column justify-content-end">
         <h2 className="text-center font-price my-1">${data.price}</h2>
+        <ProductCounter setCounter={setCounter} counter={counter} />
         <Button
           variant="dark"
           className="w-100 my-1"
-          onClick={() => addToCart()}
+          onClick={() =>
+            addToCart({
+              id: data.id,
+              title: data.title,
+              price: data.price,
+              q: counter,
+            })
+          }
         >
           ADD TO{" "}
           <FontAwesomeIcon icon={faCartPlus} style={{ color: "#18c944" }} />

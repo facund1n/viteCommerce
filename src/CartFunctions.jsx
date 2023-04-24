@@ -18,8 +18,8 @@ const CartFunctions = () => {
     } else setCart([...cart, p]);
   };
 
-  const deleteOne = () => {
-    setCart([]);
+  const deleteOne = (i) => {
+    setCart(cart.filter((c) => c.id === i));
   };
 
   const clearCart = () => {

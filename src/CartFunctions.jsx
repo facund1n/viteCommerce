@@ -4,12 +4,22 @@ import { useState, useEffect } from "react";
 const CartFunctions = () => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = () => {
-    console.log("add to cart");
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
+  // p stands for: product
+  const addToCart = (p) => {
+    if (isDuplicate(p.id)) {
+      const newCart = cart.filter((c) => c.id !== p.id);
+      const previousQ = cart.find((c) => c.id === p.id).q;
+      p.q += previousQ;
+      setCart([...newCart, p]);
+    } else setCart([...cart, p]);
   };
 
-  const deleteCart = () => {
-    console.log("delete to cart");
+  const deleteOne = () => {
+    setCart([]);
   };
 
   const clearCart = () => {
@@ -23,16 +33,16 @@ const CartFunctions = () => {
   const totalQ = () => {
     console.log("cantidad total");
   };
-
-  const isDuplicate = () => {
-    console.log("");
+  // i stands for "id"
+  const isDuplicate = (i) => {
+    return cart.find((c) => c.id === i);
   };
 
   return (
     <div>
       <Routing
         addToCart={addToCart}
-        deleteCart={deleteCart}
+        deleteOne={deleteOne}
         clearCart={clearCart}
         modifyCart={modifyCart}
         totalQ={totalQ}

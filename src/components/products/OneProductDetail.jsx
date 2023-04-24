@@ -54,7 +54,14 @@ const OneProductDetail = ({ data, addToCart }) => {
                 <Button
                   variant="dark"
                   className="d-block mx-auto m-2 w-50"
-                  onClick={() => addToCart()}
+                  onClick={() =>
+                    addToCart({
+                      id: data.id,
+                      title: data.title,
+                      price: data.price,
+                      q: counter,
+                    })
+                  }
                 >
                   ADD TO{" "}
                   <FontAwesomeIcon

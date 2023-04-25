@@ -3,8 +3,8 @@ import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import ProductCounter from "../ProductCounter";
 
+import ProductCounter from "../ProductCounter";
 import { useState } from "react";
 
 const Product = ({ data, addToCart }) => {

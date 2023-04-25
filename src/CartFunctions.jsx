@@ -1,12 +1,18 @@
 import Routing from "./routes/Routing";
-import { useState, useEffect } from "react";
+import { useState /* useEffect */ } from "react";
 
 const CartFunctions = () => {
   const [cart, setCart] = useState([]);
+  const [q, setQ] = useState([]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log(cart);
-  }, [cart]);
+  }, [cart]); */
+
+  // i stands for "id"
+  const isDuplicate = (i) => {
+    return cart.find((c) => c.id === i);
+  };
 
   // p stands for: product
   const addToCart = (p) => {
@@ -18,12 +24,13 @@ const CartFunctions = () => {
     } else setCart([...cart, p]);
   };
 
+  //i stands for: id
   const deleteOne = (i) => {
-    setCart(cart.filter((c) => c.id === i));
+    setCart(cart.filter((c) => c.id !== i));
   };
 
   const clearCart = () => {
-    console.log("clear to cart");
+    setCart([]);
   };
 
   const modifyCart = () => {
@@ -31,11 +38,20 @@ const CartFunctions = () => {
   };
 
   const totalQ = () => {
-    console.log("cantidad total");
-  };
-  // i stands for "id"
-  const isDuplicate = (i) => {
-    return cart.find((c) => c.id === i);
+    const totalQuantity = cart;
+
+    if (!totalQuantity === undefined || null) {
+      setQ(totalQuantity);
+    } else {
+      setQ([]);
+    }
+    /* (totalQuantity = 0 || undefined || null) ? setQ(0) : ; */
+
+    /*     for (let index = 0; index < cart.length; index++) {
+      const element = cart[index];
+      q += element.q;
+    }
+    return q; */
   };
 
   return (
@@ -46,6 +62,7 @@ const CartFunctions = () => {
         clearCart={clearCart}
         modifyCart={modifyCart}
         totalQ={totalQ}
+        cart={cart}
       />
     </div>
   );

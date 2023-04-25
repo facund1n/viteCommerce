@@ -88,7 +88,7 @@ export default function BuyerForm() {
           <span>* campos obligatorios</span>
           <div className="d-grid gap-2 my-2">
             <Button type="submit" variant="success">
-              <strong>CREAR POST</strong>
+              <strong>Buy</strong>
             </Button>
           </div>
           {!isSubmited ? "" : <AlertSuccess />}

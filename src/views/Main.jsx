@@ -3,10 +3,10 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Container from "react-bootstrap/Container";
 
-const Main = ({ addToCart }) => {
+const Main = ({ addToCart, totalQ, cart }) => {
   return (
     <>
-      <NavBar />
+      <NavBar cart={cart} />
       <Container>
         <Header />
         <AllProductsFetch addToCart={addToCart} />

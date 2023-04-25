@@ -4,17 +4,36 @@ import Main from "../views/Main";
 import ErrorPage from "../components/ErrorPage";
 import CartDetail from "../views/CartDetail";
 
-const Routing = ({ addToCart, deleteOne, clearCart, modifyCart, totalQ }) => {
+const Routing = ({
+  addToCart,
+  deleteOne,
+  clearCart,
+  modifyCart,
+  totalQ,
+  cart,
+}) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main addToCart={addToCart} />} />
+        <Route
+          path="/"
+          element={<Main addToCart={addToCart} totalQ={totalQ} cart={cart} />}
+        />
         <Route path="*" element={<ErrorPage />} />
         <Route
           path={"/products/:id"}
           element={<OneProductFetch addToCart={addToCart} />}
         />
-        <Route path={"/checkout"} element={<CartDetail />} />
+        <Route
+          path={"/checkout"}
+          element={
+            <CartDetail
+              cart={cart}
+              deleteOne={deleteOne}
+              clearCart={clearCart}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

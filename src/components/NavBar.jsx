@@ -3,24 +3,25 @@ import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
-function BrandExample() {
+function BrandExample({ cart }) {
   return (
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/">
-            <img
-              alt="15590524.webp"
-              src="/15590524.webp"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{" "}
-            Vite Commerce
-          </Navbar.Brand>
+          <Link to="/">
+            <Navbar.Brand>
+              <img
+                alt="15590524.webp"
+                src="/15590524.webp"
+                width="35"
+                className="d-inline-block"
+              />{" "}
+              Vite Commerce
+            </Navbar.Brand>
+          </Link>
           <Navbar.Text>
             <Link to="/checkout">
-              <Button variant="light">Cart</Button>
+              <Button variant="light">Cart {`( ${cart.length} )`}</Button>
             </Link>
           </Navbar.Text>
         </Container>

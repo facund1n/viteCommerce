@@ -9,6 +9,7 @@ const Routing = ({
   deleteOne,
   clearCart,
   modifyCart,
+  totalP,
   totalQ,
   cart,
 }) => {
@@ -31,6 +32,7 @@ const Routing = ({
               cart={cart}
               deleteOne={deleteOne}
               clearCart={clearCart}
+              totalP={totalP}
             />
           }
         />

@@ -1,13 +1,14 @@
 import Routing from "./routes/Routing";
-import { useState /* useEffect */ } from "react";
+import { useState, useEffect } from "react";
 
 const CartFunctions = () => {
   const [cart, setCart] = useState([]);
-  const [q, setQ] = useState([]);
+  const [totalQuantity, setTotalQuantity] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  /*   useEffect(() => {
-    console.log(cart);
-  }, [cart]); */
+  useEffect(() => {
+    console.log("total: ", totalPrice);
+  }, [cart, totalPrice]);
 
   // i stands for "id"
   const isDuplicate = (i) => {
@@ -37,13 +38,13 @@ const CartFunctions = () => {
     console.log("delete to cart");
   };
 
-  const totalQ = () => {
+  const totalQ = (cartPrice) => {
     const totalQuantity = cart;
 
-    if (!totalQuantity === undefined || null) {
-      setQ(totalQuantity);
+    if (totalQuantity === [] || undefined || null) {
+      setTotalQuantity([]);
     } else {
-      setQ([]);
+      setTotalQuantity(totalQuantity);
     }
     /* (totalQuantity = 0 || undefined || null) ? setQ(0) : ; */
 
@@ -54,6 +55,17 @@ const CartFunctions = () => {
     return q; */
   };
 
+  // total Price:
+  const totalP = (cart) => {
+    let price = 0;
+    if (cart === []) {
+      setTotalPrice(price);
+    } else {
+      cart.map((p) => setTotalPrice((price += p.price * p.q)));
+      return totalPrice;
+    }
+  };
+
   return (
     <div>
       <Routing
@@ -62,6 +74,7 @@ const CartFunctions = () => {
         clearCart={clearCart}
         modifyCart={modifyCart}
         totalQ={totalQ}
+        totalP={totalP}
         cart={cart}
       />
     </div>

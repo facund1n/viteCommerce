@@ -7,7 +7,7 @@ const OneProductFetch = ({ addToCart }) => {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${params.id}`)
+    fetch(`https://vite-commerce-back-end.vercel.app/${params._id}`)
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);

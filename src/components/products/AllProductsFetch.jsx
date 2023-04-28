@@ -5,7 +5,7 @@ const AllProductsFetch = ({ addToCart }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://vite-commerce-back-end.vercel.app/products")
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);

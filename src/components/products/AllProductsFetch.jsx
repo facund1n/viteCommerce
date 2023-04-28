@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AllProductsGrid from "./AllProductsGrid";
+import Cart from "../Cart";
 
 const AllProductsFetch = ({ addToCart }) => {
   const [data, setData] = useState([]);

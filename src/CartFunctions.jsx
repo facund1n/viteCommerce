@@ -7,6 +7,7 @@ const CartFunctions = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
+    console.log("carrito: ", cart);
     console.log("total: ", totalPrice);
   }, [cart, totalPrice]);
 

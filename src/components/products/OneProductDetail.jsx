@@ -16,7 +16,7 @@ const OneProductDetail = ({ data, addToCart }) => {
 
   return (
     <>
-      <NavBar />
+      <NavBar data={data} />
       <Container className="py-2">
         <div
           style={{

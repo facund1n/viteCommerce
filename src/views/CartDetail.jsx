@@ -5,7 +5,8 @@ import Cart from "../components/Cart";
 const CartDetail = ({ cart, deleteOne, clearCart, totalP }) => {
   return (
     <div>
-      <NavBar cart={cart} />
+      {/* ver si se pasa prop cart o data */}
+      <NavBar />
       <Cart
         cart={cart}
         deleteOne={deleteOne}

@@ -16,7 +16,6 @@ const OneProductFetch = ({ addToCart }) => {
   return (
     <>
       <OneProductDetail data={data} addToCart={addToCart} />
-      <Navbar data={data} />
     </>
   );
 };

@@ -40,7 +40,7 @@ const Product = ({ data, addToCart }) => {
           className="w-100 my-1"
           onClick={() =>
             addToCart({
-              id: data.id,
+              id: data._id,
               title: data.title,
               price: data.price,
               q: counter,
@@ -50,7 +50,7 @@ const Product = ({ data, addToCart }) => {
           ADD TO{" "}
           <FontAwesomeIcon icon={faCartPlus} style={{ color: "#18c944" }} />
         </Button>
-        <Link to={`/products/${data.id}`}>
+        <Link to={`/products/${data._id}`}>
           <Button variant="outline-dark" className="w-100 my-1">
             DETAILS
           </Button>

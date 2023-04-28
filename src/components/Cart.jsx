@@ -37,7 +37,7 @@ const Cart = ({ cart, deleteOne, clearCart, totalP }) => {
                     <Col xs="4">
                       <Button
                         className="d-block ms-auto"
-                        onClick={() => deleteOne(element.id)}
+                        onClick={() => deleteOne(element._id)}
                         variant="danger"
                       >
                         DELETE

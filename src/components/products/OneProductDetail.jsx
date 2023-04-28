@@ -56,7 +56,7 @@ const OneProductDetail = ({ data, addToCart }) => {
                   className="d-block mx-auto m-2 w-50"
                   onClick={() =>
                     addToCart({
-                      id: data.id,
+                      id: data._id,
                       title: data.title,
                       price: data.price,
                       q: counter,

@@ -1,5 +1,4 @@
 import Button from "react-bootstrap/Button";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -11,52 +10,39 @@ const Product = ({ data, addToCart }) => {
   const [counter, setCounter] = useState(1);
 
   return (
-    <div
-      style={{
-        height: "100%",
-        width: "100%",
-        boxShadow: "0.5px 0.5px 3px gray",
-        borderRadius: "3px",
-        padding: "0px",
-        margin: "0",
-        textOverflow: "ellipsis",
-      }}
-    >
-      <div className="h-50">
-        <img
-          className="img-fluid mx-auto d-block h-100"
-          src={data.image[0]}
-          alt={data.image[0]}
-        />
-        <hr />
-        <h5 className="text-center">{data.title}</h5>
-      </div>
+    <Link to={`/products/${data._id}`} style={{ textDecoration: "none" }}>
+      <div
+        className="zoom"
+        style={{
+          height: "100%",
+          width: "100%",
+          boxShadow: "0px 0px 2px black",
+          borderRadius: "3px",
+          padding: "0px",
+          margin: "0",
+          textOverflow: "ellipsis",
+          overflow: "hidden",
+        }}
+      >
+        <div className="h-50 ">
+          <img
+            className="img-fluid mx-auto d-block h-100 "
+            src={data.image[0]}
+            alt={data.image[0]}
+            style={{ overflow: "hidden " }}
+          />
+        </div>
 
-      <div className="h-50 d-flex flex-column justify-content-end">
-        <h2 className="text-center font-price my-1">${data.price}</h2>
-        <ProductCounter setCounter={setCounter} counter={counter} />
-        <Button
-          variant="dark"
-          className="w-100 my-1"
-          onClick={() =>
-            addToCart({
-              id: data._id,
-              title: data.title,
-              price: data.price,
-              q: counter,
-            })
-          }
-        >
-          ADD TO{" "}
-          <FontAwesomeIcon icon={faCartPlus} style={{ color: "#18c944" }} />
-        </Button>
-        <Link to={`/products/${data._id}`}>
-          <Button variant="outline-dark" className="w-100 my-1">
-            DETAILS
-          </Button>
-        </Link>
+        <div className="h-50 d-flex flex-column justify-content-around px-2">
+          <hr />
+          <p className="fw-normal">{data.title}</p>
+          <h3 className="fw-bold ms-auto ">${data.price}</h3>
+          <p className="bg-danger text-white fw-bold ms-auto p-1">
+            {data.category}
+          </p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

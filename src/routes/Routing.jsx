@@ -3,6 +3,7 @@ import OneProductFetch from "../components/products/OneProductFetch";
 import Main from "../views/Main";
 import ErrorPage from "../components/ErrorPage";
 import CartDetail from "../views/CartDetail";
+import AllProducts from "../components/crud/AllProducts";
 
 const Routing = ({
   addToCart,
@@ -36,6 +37,7 @@ const Routing = ({
             />
           }
         />
+        <Route path={"/panel"} element={<AllProducts />} />
       </Routes>
     </BrowserRouter>
   );

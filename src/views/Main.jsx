@@ -8,7 +8,7 @@ const Main = ({ addToCart, totalQ, cart }) => {
     <>
       <NavBar cart={cart} />
       <Container fluid className="bg-light-gray min-vh-100">
-        <Container className="bg-white min-vh-100">
+        <Container className="min-vh-100">
           <Header />
           <AllProductsFetch addToCart={addToCart} className="bg-warning" />
         </Container>

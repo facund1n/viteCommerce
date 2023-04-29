@@ -3,10 +3,14 @@ import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
-function BrandExample({ data }) {
+function BrandExample(
+  {
+    /* data */
+  }
+) {
   return (
     <>
-      {console.log(data)}
+      {console.log(/* data */)}
       <Navbar bg="dark" variant="dark">
         <Container>
           <Link to="/">
@@ -22,7 +26,7 @@ function BrandExample({ data }) {
           </Link>
           <Navbar.Text>
             <Link to="/checkout">
-              <Button variant="light">Cart {`( ${data} )`}</Button>
+              <Button variant="light">Cart {/* {`( ${data} )`} */}</Button>
             </Link>
           </Navbar.Text>
         </Container>

@@ -25,8 +25,8 @@ const Product = ({ data, addToCart }) => {
       <div className="h-50">
         <img
           className="img-fluid mx-auto d-block h-100"
-          src={data.image}
-          alt={data.image}
+          src={data.image[0]}
+          alt={data.image[0]}
         />
         <hr />
         <h5 className="text-center">{data.title}</h5>

@@ -1,8 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Figtree", sans-serif;
+}
+
+.bg-light-gray {
+  background-color: #e7e7e7;
 }
 
 .font-price {
   background-color: #a2e70077;
+}
+
+a:hover {
+  color: inherit;
+}
+
+.zoom:hover {
+  transform: scale(
+    1.01
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+  transition: 0.3s;
 }

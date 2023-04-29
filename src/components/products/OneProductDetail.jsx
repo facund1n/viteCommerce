@@ -16,7 +16,7 @@ const OneProductDetail = ({ data, addToCart }) => {
 
   return (
     <>
-      <NavBar data={data} />
+      <NavBar /* data={data}  */ />
       <Container className="py-2">
         <div
           style={{
@@ -40,17 +40,41 @@ const OneProductDetail = ({ data, addToCart }) => {
               <div>
                 <img
                   className="img-fluid mx-auto d-block w-50 py-2"
-                  src={data.image}
-                  alt={data.image}
+                  src={data.image[0]}
+                  alt={data.image[0]}
                 />
               </div>
+              {/* pseudo gallery */}{" "}
+              <Row>
+                <img
+                  className="img-fluid mx-auto  py-2"
+                  src={data.image[1]}
+                  alt={data.image[1]}
+                  style={{ width: "80px" }}
+                />
+
+                <img
+                  className="img-fluid mx-auto py-2"
+                  src={data.image[2]}
+                  alt={data.image[2]}
+                  style={{ width: "80px" }}
+                />
+                <img
+                  className="img-fluid mx-auto py-2"
+                  src={data.image[3]}
+                  alt={data.image[3]}
+                  style={{ width: "80px" }}
+                />
+              </Row>
             </Col>
             <Col className="d-flex flex-column justify-content-center">
               <h3>{data.title}</h3>
               <p>{data.description}</p>
               <h2 className="text-center">${data.price}</h2>
+              <div className="mx-auto">stock: {data.stock}</div>
               <div className="d-flex bg-light">
                 <ProductCounter setCounter={setCounter} counter={counter} />
+
                 <Button
                   variant="dark"
                   className="d-block mx-auto m-2 w-50"

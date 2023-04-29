@@ -8,8 +8,8 @@ const AllProductsGrid = ({ data, addToCart }) => {
   return (
     <>
       <Row lg="4" md="3" sm="1" xs="1" className="my-1">
-        {data.map((data, k) => (
-          <Col key={k} className="my-1">
+        {data.map((data, key) => (
+          <Col key={data._id} className="my-1">
             <Product data={data} addToCart={addToCart} />
           </Col>
         ))}

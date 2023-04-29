@@ -37,7 +37,7 @@ export default function NewPost() {
 
   const onSubmit = async (values) => {
     const response = await axios
-      .post("https://3i-show-api-node.vercel.app/articulos/new", values)
+      .post("https://vite-commerce-back-end.vercel.app/products/new", values)
       .catch((err) => {
         if (err) setError(err.response.data.message);
         setSuccess(null);

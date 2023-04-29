@@ -1,67 +1,79 @@
-import { Button } from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useFormik } from "formik";
 import { useState } from "react";
 import axios from "axios";
 import * as yup from "yup";
+import Toast from "../ToastA";
+
 /* import { Success, Error } from "../Common"; */
 
 import { useNavigate } from "react-router-dom";
 
 const validationSchema = yup.object({
-  title: yup.string().min(2, "Max 2 ").max(80, "Min 80").required("Required"),
+  title: yup.string().min(2, "Min 2 ").max(80, "Max 80").required("Required"),
   description: yup
     .string()
     .min(10, "Min 10")
-    .max(30, "Max 300")
+    .max(500, "Max 500")
     .required("Required"),
-  image: yup.string().url("enter valid URL"),
+  image: yup
+    .array()
+    .of(yup.string().url("ingrese una URL válida"))
+    .required("Required"),
   price: yup
-    .string()
-    .min(10, "Min 10")
-    .max(500, "Man 500")
+    .number()
+    .positive("Enter +Positive number")
+    .integer()
     .required("Required"),
   category: yup
     .string()
     .min(2, "Max 2 ")
     .max(80, "Min 80")
     .required("Required"),
-  stock: yup.string().url("ingrese una URL válida").required("Required"),
+  stock: yup
+    .number()
+    .positive("Enter +Positive number")
+    .integer()
+    .required("Required"),
 });
 
 export default function NewPost() {
   const [success, setSuccess] = useState(null);
-  const [error, setError] = useState(null);
+  const [response, setResponse] = useState(null);
+  const [show, setShow] = useState(false);
 
   let navigate = useNavigate();
 
   const onSubmit = async (values) => {
     const response = await axios
       .post("https://vite-commerce-back-end.vercel.app/products/new", values)
-      .catch((err) => {
-        if (err) setError(err.response.data.message);
-        setSuccess(null);
-        console.log("Error?", err.response.data.message);
+      .catch((error) => {
+        if (error) setSuccess(false);
+        setResponse(error.response.data.message);
+        setShow(true);
       });
     if (response) {
-      setError(null);
-      setSuccess(response.data.message);
-      formik.resetForm();
-      setInterval(() => {
-        navigate("/users/admin");
+      setSuccess(true);
+      setResponse(response.data.message);
+      setShow(true);
+      /*  formik.resetForm(); */
+      /* setInterval(() => {
+        navigate("/panel");
         window.location.reload();
-      }, 3000);
+      }, 3000); */
     }
   };
+  /* 
+  const imagesArray = set; */
 
   const formik = useFormik({
     initialValues: {
       title: "",
       description: "",
-      image: "",
+      image: ["", "", "", ""],
       price: "",
-      alt: "",
-      category: "destacados",
+      category: "phones",
       stock: "",
     },
     validateOnBlur: true,
@@ -70,128 +82,153 @@ export default function NewPost() {
   });
 
   return (
-    <Form onSubmit={formik.handleSubmit}>
-      <h3>EDITAR POST:</h3>
-      <hr />
-      {!error && <Success>{success ? success : ""}</Success>}
-      {!success && <Error>{error ? error : ""}</Error>}
-      <Form.Group className="mb-3">
-        <Form.Label>Title (min 2 - máx 80) *</Form.Label>
-        <Form.Control
-          id="title"
-          name="title"
-          type="text"
-          placeholder="title"
+    <>
+      <Form onSubmit={formik.handleSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label>Title (min 2 - máx 80) *</Form.Label>
+          <Form.Control
+            id="title"
+            name="title"
+            type="text"
+            placeholder="title"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.title}
+          />
+          {formik.touched.title && formik.errors.title ? (
+            <div className="text-danger mt-1">{formik.errors.title}</div>
+          ) : null}
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Description (min 10 - máx 300) *</Form.Label>
+          <Form.Control
+            id="description"
+            name="description"
+            type="text"
+            placeholder="description"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.description}
+          />
+          {formik.touched.description && formik.errors.description ? (
+            <div className="text-danger mt-1">{formik.errors.description}</div>
+          ) : null}
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>IMAGES (Enter 4 image URLs) *</Form.Label>
+          <br /> <Form.Label>Principal Image:</Form.Label>
+          {formik.touched.image && formik.errors.image ? (
+            <div className="text-danger mt-1">{formik.errors.image}</div>
+          ) : null}
+          <Form.Control
+            id="image[0]"
+            name="image[0]"
+            type="text"
+            placeholder="http://image.com/image-1.png"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.image[0]}
+          />
+          <Form.Label>2nd Image:</Form.Label>
+          <Form.Control
+            id="image[1]"
+            name="image[1]"
+            type="text"
+            placeholder="http://image.com/image-2.png"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.image[1]}
+          />
+          <Form.Label>3rd Image:</Form.Label>
+          <Form.Control
+            id="image[2]"
+            name="image[2]"
+            type="text"
+            placeholder="http://image.com/image-3.png"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.image[2]}
+          />
+          <Form.Label>4th Image:</Form.Label>
+          <Form.Control
+            id="image[3]"
+            name="image[3]"
+            type="text"
+            placeholder="http://image.com/image-1.png"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.image[3]}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Price*</Form.Label>
+          <Form.Control
+            id="price"
+            name="price"
+            type="number"
+            placeholder="$"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.price}
+          />
+          {formik.touched.price && formik.errors.price ? (
+            <div className="text-danger mt-1">{formik.errors.price}</div>
+          ) : null}
+        </Form.Group>
+        <Form.Label>Category *</Form.Label>
+        <Form.Select
+          aria-label="Default select example"
+          className="mb-2"
+          id="category"
+          name="category"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.title}
-        />
-        {formik.touched.title && formik.errors.title ? (
-          <div className="f-yellow mt-1">{formik.errors.title}</div>
-        ) : null}
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Description (min 10 - máx 300) *</Form.Label>
-        <Form.Control
-          id="description"
-          name="description"
-          type="text"
-          placeholder="Sub-título"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.description}
-        />
-        {formik.touched.description && formik.errors.description ? (
-          <div className="f-yellow mt-1">{formik.errors.description}</div>
-        ) : null}
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>URL imágen *</Form.Label>
-        <Form.Control
-          id="image"
-          name="image"
-          type="text"
-          placeholder="ej.: http://imgen.com/imagen.png"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.image}
-        />
-        {formik.touched.image && formik.errors.image ? (
-          <div className="f-yellow mt-1">{formik.errors.image}</div>
-        ) : null}
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Cuerpo artículo (mínimo 10 máximo 500) *</Form.Label>
-        <Form.Control
-          id="price"
-          name="price"
-          type="text"
-          as="textarea"
-          placeholder="Cuerpo artículo"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.price}
-        />
-        {formik.touched.price && formik.errors.price ? (
-          <div className="f-yellow mt-1">{formik.errors.price}</div>
-        ) : null}
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>ALT imágen *</Form.Label>
-        <Form.Control
-          id="alt"
-          name="alt"
-          type="text"
-          placeholder="ALT imágen"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.alt}
-        />
-        {formik.touched.alt && formik.errors.alt ? (
-          <div className="f-yellow mt-1">{formik.errors.alt}</div>
-        ) : null}
-      </Form.Group>
-      <Form.Label>Categoría *</Form.Label>
-      <Form.Select
-        aria-label="Default select example"
-        className="mb-2"
-        id="category"
-        name="category"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.category}
-      >
-        <option value="destacados" className="f-black">
-          Destacados
-        </option>
-        <option value="noticias" className="f-black">
-          Noticias
-        </option>
-        <option value="shows" className="f-black">
-          Shows
-        </option>
-      </Form.Select>
-      <Form.Group className="mb-3">
-        <Form.Label>URL Tickets (en caso que sea Show)</Form.Label>
-        <Form.Control
-          id="stock"
-          name="stock"
-          type="number"
-          placeholder="ej.: https://tickets.com/"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.stock}
-        />
-        {formik.touched.stock && formik.errors.stock ? (
-          <div className="f-yellow mt-1">{formik.errors.stock}</div>
-        ) : null}
-      </Form.Group>
-      <span>* campos obligatorios</span>
-      <div className="d-grid gap-2 my-2">
-        <Button type="submit" variant="success">
-          <strong>CREAR POST</strong>
-        </Button>
-      </div>
-    </Form>
+          value={formik.values.category}
+        >
+          <option value="phones" className="f-black">
+            phones
+          </option>
+          <option value="pc" className="f-black">
+            pc
+          </option>
+          <option value="monitors" className="f-black">
+            monitors
+          </option>
+          <option value="audio" className="f-black">
+            computers
+          </option>
+        </Form.Select>
+        <Form.Group className="mb-3">
+          <Form.Label>Stock</Form.Label>
+          <Form.Control
+            id="stock"
+            name="stock"
+            type="number"
+            placeholder="0"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.stock}
+          />
+          {formik.touched.stock && formik.errors.stock ? (
+            <div className="text-danger mt-1">{formik.errors.stock}</div>
+          ) : null}
+        </Form.Group>
+        <span>* campos obligatorios</span>
+        {success && (
+          <Toast
+            success={success}
+            response={response}
+            show={show}
+            onClose={() => setShow(false)}
+          />
+        )}
+        <div className="d-grid gap-2 my-2">
+          <Button type="submit" variant="success">
+            <strong>NEW PRODUCT</strong>
+          </Button>
+        </div>
+      </Form>
+    </>
   );
 }

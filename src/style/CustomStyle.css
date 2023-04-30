@@ -21,6 +21,37 @@ a:hover {
 }
 
 .purple-hover:hover {
-  transition: 300ms;
-  color: #18006d;
+  transition: 200ms;
+  color: #2800bb;
+}
+
+.wiggle-bdr-top {
+  border-top: solid 2px #ffc107;
+  animation-duration: 500ms;
+  animation-name: wiggle;
+}
+@keyframes wiggle {
+  0%,
+  5% {
+    transform: rotateZ(0);
+  }
+  10% {
+    transform: rotateZ(-2deg);
+  }
+  20% {
+    transform: rotateZ(2deg);
+  }
+  25% {
+    transform: rotateZ(-2deg);
+  }
+  30% {
+    transform: rotateZ(2deg);
+  }
+  35% {
+    transform: rotateZ(-2deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
 }

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
-import DeleteOneProduct from "./DeleteOneProduct";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+
+import DeleteOneProduct from "./DeleteOneProduct";
 
 const DeleteOneButton = ({ data }) => {
   const [show, setShow] = useState(false);
@@ -9,7 +10,7 @@ const DeleteOneButton = ({ data }) => {
 
   return (
     <>
-      <Link onClick={() => setShow(true)}> 🗑 DELETE</Link>
+      <Link onClick={() => setShow(true)}>🗑 DELETE</Link>
       <Modal
         show={show}
         onHide={handleClose}

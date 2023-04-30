@@ -29,7 +29,6 @@ export default function LoginForm() {
       .catch((err) => {
         if (err) setError(err.response.data.message);
         setSuccess(false);
-        console.log("Error?", err.response.data.message);
       });
     if (response) {
       setError(false);

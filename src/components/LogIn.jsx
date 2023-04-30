@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 import LogInForm from "./forms/LogInForm";
 
 const LogIn = () => {
@@ -9,7 +9,7 @@ const LogIn = () => {
 
   return (
     <>
-      <div onClick={() => setShow(true)}>LOG IN</div>
+      <Link onClick={() => setShow(true)}>LOG IN</Link>
       <div className="mx-1"> | </div>
       <Modal
         show={show}

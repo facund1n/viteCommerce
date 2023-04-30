@@ -12,11 +12,11 @@ const Product = ({ data, addToCart }) => {
   return (
     <Link to={`/products/${data._id}`} style={{ textDecoration: "none" }}>
       <div
-        className="zoom"
+        className=""
         style={{
           height: "100%",
           width: "100%",
-          border: "solid 1px lightgray",
+          border: "dashed 0.2rem lightgray",
           borderRadius: "3px",
           padding: "0.3em",
           margin: "0",
@@ -26,20 +26,25 @@ const Product = ({ data, addToCart }) => {
       >
         <div className="h-50 ">
           <img
-            className="img-fluid mx-auto d-block h-100 "
+            className="img-fluid mx-auto d-block h-100 zoom"
             src={data.image[0]}
             alt={data.image[0]}
             style={{ overflow: "hidden " }}
           />
         </div>
-
-        <div className="h-50 d-flex flex-column justify-content-around px-2">
+        <div className="h-50 d-flex flex-column justify-content-between px-1">
           <hr />
-          <p className="fw-normal">{data.title}</p>
-          <h3 className="fw-bold ms-auto ">${data.price}</h3>
-          <p className="bg-danger text-white fw-bold ms-auto p-1">
-            {data.category}
-          </p>
+          <h6 className="fw-bold purple-hover">{data.title}</h6>
+          <div className="d-flex flex-column align-items-end">
+            <h2>
+              <strong>$ {data.price}</strong>
+            </h2>
+            <span className="bg-danger text-white fw-bold p-1">
+              {data.category}
+            </span>
+            <br />
+            <span>stock: {data.stock}</span>
+          </div>
         </div>
       </div>
     </Link>

@@ -2,11 +2,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useFormik } from "formik";
 import { useState } from "react";
+import { Success, Error } from "../Common";
 import axios from "axios";
 import * as yup from "yup";
-import Toast from "../ToastA";
-
-/* import { Success, Error } from "../Common"; */
 
 import { useNavigate } from "react-router-dom";
 
@@ -40,32 +38,26 @@ const validationSchema = yup.object({
 
 export default function NewPost() {
   const [success, setSuccess] = useState(null);
-  const [response, setResponse] = useState(null);
-  const [show, setShow] = useState(false);
-
+  const [error, setError] = useState(null);
   let navigate = useNavigate();
 
   const onSubmit = async (values) => {
     const response = await axios
       .post("https://vite-commerce-back-end.vercel.app/products/new", values)
       .catch((error) => {
-        if (error) setSuccess(false);
-        setResponse(error.response.data.message);
-        setShow(true);
+        if (error) setError(error.response.data.message);
+        setSuccess(false);
       });
     if (response) {
-      setSuccess(true);
-      setResponse(response.data.message);
-      setShow(true);
-      /*  formik.resetForm(); */
-      /* setInterval(() => {
+      setError(false);
+      setSuccess(response.data.message);
+      formik.resetForm();
+      setInterval(() => {
         navigate("/panel");
         window.location.reload();
-      }, 3000); */
+      }, 3000);
     }
   };
-  /* 
-  const imagesArray = set; */
 
   const formik = useFormik({
     initialValues: {
@@ -214,15 +206,9 @@ export default function NewPost() {
             <div className="text-danger mt-1">{formik.errors.stock}</div>
           ) : null}
         </Form.Group>
-        <span>* campos obligatorios</span>
-        {success && (
-          <Toast
-            success={success}
-            response={response}
-            show={show}
-            onClose={() => setShow(false)}
-          />
-        )}
+        <span>* must fill </span>
+        {success && <Success>{<span>🛈 {success}</span>}</Success>}
+        {error && <Error>{<span>🛈 {error}</span>}</Error>}
         <div className="d-grid gap-2 my-2">
           <Button type="submit" variant="success">
             <strong>NEW PRODUCT</strong>

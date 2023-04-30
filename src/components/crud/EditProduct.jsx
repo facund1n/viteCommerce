@@ -49,11 +49,11 @@ export default function EditProduct({ data }) {
       )
       .catch((err) => {
         if (err) setError(err.response.data.message);
-        setSuccess(null);
+        setSuccess(false);
         console.log("Error?", err.response.data.message);
       });
     if (response) {
-      setError(null);
+      setError(true);
       setSuccess(response.data.message);
       formik.resetForm();
       setInterval(() => {

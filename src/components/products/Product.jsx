@@ -10,7 +10,7 @@ const Product = ({ data, addToCart }) => {
   const [counter, setCounter] = useState(1);
 
   return (
-    <Link to={`/products/${data._id}`} style={{ textDecoration: "none" }}>
+    <Link to={`/products/${data._id}`}>
       <div
         className=""
         style={{
@@ -32,18 +32,21 @@ const Product = ({ data, addToCart }) => {
             style={{ overflow: "hidden " }}
           />
         </div>
-        <div className="h-50 d-flex flex-column justify-content-between px-1">
+
+        <div className="h-50 d-flex flex-column justify-content-around px-2">
           <hr />
           <h6 className="fw-bold purple-hover">{data.title}</h6>
           <div className="d-flex flex-column align-items-end">
-            <h2>
-              <strong>$ {data.price}</strong>
-            </h2>
-            <span className="bg-danger text-white fw-bold p-1">
+            <span className="fw-bold fs-4">$ {data.price}</span>
+          </div>
+
+          <div className="d-flex flex-row justify-content-between">
+            <span className=" bg-danger text-white fw-bold p-1">
               {data.category}
             </span>
-            <br />
-            <span>stock: {data.stock}</span>
+            <span className="pb-2 text-muted">
+              stock: <b>{data.stock}</b>
+            </span>
           </div>
         </div>
       </div>

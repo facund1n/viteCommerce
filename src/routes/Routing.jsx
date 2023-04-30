@@ -4,6 +4,7 @@ import Main from "../views/Main";
 import ErrorPage from "../components/ErrorPage";
 import CartDetail from "../views/CartDetail";
 import AllProducts from "../components/crud/AllProducts";
+import UserPanel from "../components/UserPanel";
 
 const Routing = ({
   addToCart,
@@ -37,6 +38,7 @@ const Routing = ({
             />
           }
         />
+        <Route path="/user/:id" element={<UserPanel />} />
         <Route path={"/panel"} element={<AllProducts />} />
       </Routes>
     </BrowserRouter>

@@ -18,15 +18,15 @@ function BrandExample(
               <img
                 alt="15590524.webp"
                 src="/15590524.webp"
-                width="35"
+                width="30"
                 className="d-inline-block"
               />{" "}
-              Vite Commerce
+              vite commerce
             </Navbar.Brand>
           </Link>
           <Navbar.Text>
             <Link to="/checkout">
-              <Button variant="light">Cart {/* {`( ${data} )`} */}</Button>
+              <Button variant="light">🛒 Cart {/* {`( ${data} )`} */}</Button>
             </Link>
           </Navbar.Text>
         </Container>

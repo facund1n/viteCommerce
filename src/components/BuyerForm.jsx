@@ -6,13 +6,13 @@ import AlertSuccess from "./AlertSuccess";
 import "yup-phone";
 
 const validationSchema = yup.object({
-  name: yup.string().min(2, "Min 2").max(30, "Max 30").required("Requerido"),
+  name: yup.string().min(2, "Min 2").max(30, "Max 30").required("Required"),
   phone: yup
     .string()
     .min(10, "10 chars exactly")
     .max(10, "10 chars exactly")
-    .required("Requerido"),
-  mail: yup.string().email("Enter valid e-mail").required("Requerido"),
+    .required("Required"),
+  mail: yup.string().email("Enter valid e-mail").required("Required"),
 });
 
 export default function BuyerForm() {

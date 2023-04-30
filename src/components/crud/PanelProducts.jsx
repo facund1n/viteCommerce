@@ -1,16 +1,16 @@
 import { Row, Col, ListGroup, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import DeleteOneProduct from "./DeleteOneProduct";
+import EditProductButton from "./EditProductButton";
 import DeleteOneButton from "./DeleteOneButton";
 
 // 3.3
 
 const PanelProducts = ({ data }) => {
   return (
-    <Container>
+    <>
       <ListGroup>
         <ListGroup.Item className="bg-white">
-          <Row xs={1} md={4} lg={4} className="align-items-center">
+          <Row xs={1} md={4} lg={4} className="align-items-center mx-auto">
             <Col>
               <img
                 style={{ height: "120px" }}
@@ -26,7 +26,7 @@ const PanelProducts = ({ data }) => {
               <Link to={`/products/${data._id}`}>👁 VIEW PRODUCT</Link>
             </Col>
             <Col className="fw-bold text-end py-2">
-              🖉 edit{/* <EditPostButton data={data} /> */}
+              <EditProductButton data={data} />
             </Col>
             <Col className="text-danger fw-bold text-end py-2">
               <DeleteOneButton data={data} />
@@ -34,7 +34,7 @@ const PanelProducts = ({ data }) => {
           </Row>
         </ListGroup.Item>
       </ListGroup>
-    </Container>
+    </>
   );
 };
 

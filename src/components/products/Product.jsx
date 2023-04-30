@@ -16,7 +16,7 @@ const Product = ({ data, addToCart }) => {
         style={{
           height: "100%",
           width: "100%",
-          border: "dashed 0.2rem lightgray",
+          border: "solid 0.1rem lightgray",
           borderRadius: "3px",
           padding: "0.3em",
           margin: "0",

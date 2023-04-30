@@ -14,7 +14,7 @@ const validationSchema = yup.object({
     .string()
     .min(8, "mínimo 8 carácteres")
     .max(30, "máximo 30 carácteres")
-    .required("Requerido"),
+    .required("Required"),
 });
 
 export default function LoginForm() {

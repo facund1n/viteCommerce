@@ -20,11 +20,7 @@ const validationSchema = yup.object({
     .min(10, "10 chars exactly")
     .max(10, "10 chars exactly")
     .required("Required"),
-  password: yup
-    .string()
-    .min(6, "Min 6")
-    .max(20, "Max 20")
-    .required("Requerido"),
+  password: yup.string().min(6, "Min 6").max(20, "Max 20").required("Required"),
   password2: yup
     .string()
     .min(6, "Min 6")

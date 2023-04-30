@@ -2,15 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
-import DeleteOneProduct from "./DeleteOneProduct";
+import EditProduct from "./EditProduct";
 
-const DeleteOneButton = ({ data }) => {
+const EditProductButton = ({ data }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-
   return (
     <>
-      <Link onClick={() => setShow(true)}>🗑 DELETE</Link>
+      <Link onClick={() => setShow(true)}>🖉 EDIT</Link>
       <Modal
         show={show}
         onHide={handleClose}
@@ -19,11 +18,16 @@ const DeleteOneButton = ({ data }) => {
         centered
       >
         <Modal.Header closeButton className="banner">
-          <b> Are you sure you want to delete?</b>
+          <img
+            alt="logo"
+            src="/img/logo.png"
+            height="20px"
+            className="d-block m-0 p-0"
+          />
         </Modal.Header>
         <div className="b-black">
           <Modal.Body>
-            <DeleteOneProduct data={data} />
+            <EditProduct data={data} />
           </Modal.Body>
         </div>
       </Modal>
@@ -31,4 +35,4 @@ const DeleteOneButton = ({ data }) => {
   );
 };
 
-export default DeleteOneButton;
+export default EditProductButton;

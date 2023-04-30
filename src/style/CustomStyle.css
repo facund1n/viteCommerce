@@ -10,15 +10,17 @@
   background-color: #e7e7e7;
 }
 
-.font-price {
-  background-color: #a2e70077;
-}
-
 a:hover {
   color: inherit;
 }
 
 .zoom:hover {
-  transform: scale(1.01);
-  transition: 100ms;
+  transform: scale(1.02);
+  overflow: hidden;
+  transition: 200ms;
+}
+
+.purple-hover:hover {
+  transition: 300ms;
+  color: #18006d;
 }

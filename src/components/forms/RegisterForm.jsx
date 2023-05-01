@@ -156,14 +156,17 @@ export default function RegisterForm() {
       </Form.Group>
       {success && <Success>{<span>🛈 {success}</span>}</Success>}
       {error && <Error>{<span>🛈 {error}</span>}</Error>}
-      <div className="d-grid gap-2 mb-2 f-black">
-        <Button type="submit" variant="warning">
-          <strong className="f-black">Register</strong>
-        </Button>
-      </div>
+
+      <Button
+        type="submit"
+        variant="warning"
+        className="mx-auto w-100 py-2 mt-3"
+      >
+        <strong>Register</strong>
+      </Button>
       <hr />
-      <Link to="/login" className="">
-        <span className="">Already registered? click me!</span>
+      <Link to="/login">
+        <span className="fw-bold">Already registered? click me!</span>
       </Link>
     </Form>
   );

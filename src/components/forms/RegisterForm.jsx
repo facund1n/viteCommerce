@@ -42,7 +42,6 @@ export default function RegisterForm() {
       .catch((error) => {
         if (error) setError(error.response.data.message);
         setSuccess(false);
-        console.log("Error?", error.response.data.message);
       });
     if (response) {
       setError(false);

@@ -5,11 +5,19 @@ import "./style/CustomStyle.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import "./CartFunctions";
 import CartFunctions from "./CartFunctions";
+import { AuthProvider } from "react-auth-kit";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
-      <CartFunctions />
+      <AuthProvider
+        authType={"cookie"}
+        authName={"_auth"} // nombre cookie
+        cookieDomain={window.location.hostname} // dominio de cookie
+        cookieSecure={false} // protocolo HTTP, no HTTPS.
+      >
+        <CartFunctions />
+      </AuthProvider>
     </ChakraProvider>
   </React.StrictMode>
 );

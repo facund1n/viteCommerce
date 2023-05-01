@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import * as yup from "yup";
 import { Success, Error } from "../Common";
-// import { useSignIn } from "react-auth-kit";
+import { useSignIn } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
 
 const validationSchema = yup.object({
@@ -20,7 +20,7 @@ const validationSchema = yup.object({
 export default function LoginForm() {
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
-  /* const singIn = useSignIn(); */
+  const singIn = useSignIn();
   let navigate = useNavigate();
 
   const onSubmit = async (values) => {

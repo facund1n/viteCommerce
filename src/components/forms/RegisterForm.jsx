@@ -39,10 +39,9 @@ export default function RegisterForm() {
 
     const response = await axios
       .post("https://vite-commerce-back-end.vercel.app/register", data)
-      .catch((err) => {
-        if (err) setError(err.response.data.message);
+      .catch((error) => {
+        if (error) setError(error.response.data.message);
         setSuccess(false);
-        console.log("Error?", err.response.data.message);
       });
     if (response) {
       setError(false);

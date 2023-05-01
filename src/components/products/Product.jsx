@@ -37,15 +37,14 @@ const Product = ({ data, addToCart }) => {
           <hr />
           <h6 className="fw-bold purple-hover">{data.title}</h6>
           <div className="d-flex flex-column align-items-end">
-            <span className="fw-bold fs-4">$ {data.price}</span>
+            <span className="fw-bold fs-4 py-1">$ {data.price}</span>
           </div>
-
           <div className="d-flex flex-row justify-content-between">
+            <span className="text-muted p-1">
+              stock: <b>{data.stock}</b>
+            </span>
             <span className=" bg-danger text-white fw-bold p-1">
               {data.category}
-            </span>
-            <span className="pb-2 text-muted">
-              stock: <b>{data.stock}</b>
             </span>
           </div>
         </div>

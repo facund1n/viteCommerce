@@ -7,7 +7,7 @@ import Product from "./Product";
 const AllProductsGrid = ({ data, addToCart }) => {
   return (
     <Container className="bg-white min-vh-100">
-      <Row lg="5" md="3" sm="1" xs="1" className="my-1">
+      <Row lg="4" md="3" xs="1" className="my-1">
         {data.map((data) => (
           <Col key={data._id} className="my-1">
             <Product data={data} addToCart={addToCart} />

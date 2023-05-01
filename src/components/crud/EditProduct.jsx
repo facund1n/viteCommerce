@@ -53,7 +53,7 @@ export default function EditProduct({ data }) {
         console.log("Error?", err.response.data.message);
       });
     if (response) {
-      setError(true);
+      setError(false);
       setSuccess(response.data.message);
       formik.resetForm();
       setInterval(() => {

@@ -96,17 +96,20 @@ export default function LoginForm() {
       </Form.Group>
       {success && <Success>{<span>🛈 {success}</span>}</Success>}
       {error && <Error>{<span>🛈 {error}</span>}</Error>}
-      <div className="d-grid gap-2 mb-2 f-black">
-        <Button type="submit" variant="warning">
-          <strong className="f-black">LOGIN</strong>
-        </Button>
-      </div>
+
+      <Button
+        type="submit"
+        variant="warning"
+        className="mx-auto w-100 py-2 mt-3"
+      >
+        <strong>Log in</strong>
+      </Button>
       <hr />
       <Link to={"/register"} className="">
         <span className="">NOT registered? click me!</span>
       </Link>
       <br />
-      <Link to={""} className="">
+      <Link>
         <span className="">Forgot pass? click me!</span>
       </Link>
     </Form>

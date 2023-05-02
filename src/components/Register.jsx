@@ -10,7 +10,9 @@ const Register = () => {
 
   return (
     <>
-      <Link onClick={() => setShow(true)}>REGISTER</Link>
+      <Link onClick={() => setShow(true)} className="fw-bold purple-hover">
+        REGISTER
+      </Link>
       <Modal
         show={show}
         onHide={handleClose}

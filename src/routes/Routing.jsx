@@ -39,8 +39,11 @@ const Routing = ({
 
   useEffect(() => {
     if (isAuth && getUser) {
+      // remove fisrt and last: "", from user name.
+      const user = getUser.slice(1, -1);
+
       isAuth ? setAuth(true) : setAuth(false);
-      getUser ? setLoggedUserName(getUser) : setLoggedUserName();
+      getUser ? setLoggedUserName(user) : setLoggedUserName();
       console.log("Logeado como: ", userLogged);
     }
   }, [auth, userLogged]);

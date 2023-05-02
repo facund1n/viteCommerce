@@ -42,7 +42,8 @@ export default function LoginForm() {
         token: response.data.token,
         expiresIn: 86400,
         tokenType: "Bearer",
-        authState: { name: values.name },
+        //sets cookie w/user.name
+        authState: response.data.name,
       });
     }
   };

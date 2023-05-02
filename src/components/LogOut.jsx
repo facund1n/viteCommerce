@@ -1,22 +1,22 @@
-// import { useSignOut } from "react-auth-kit";
+import { useSignOut } from "react-auth-kit";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 const LogOut = ({ userLogged }) => {
   const signOut = useSignOut();
 
   return (
-    <div className="text-end justify-content-end">
-      <span>Logedo como: </span>
-      <br />
-      <Link to={`/users/${userLogged}`}>
-        <h3 className="btn btn-outline-warning btn-lg my-2">{userLogged}</h3>
+    <div className="d-flex flex-row ms-auto ">
+      <span>Looged as:&nbsp;</span>
+      <Link to={`/users/${userLogged}`} className="purple-hover">
+        <strong>{userLogged}&nbsp;</strong>
       </Link>
-      <div
-        className=" mx-1 links"
-        onClick={() => signOut().finally(window.location.reload())}
-      >
-        CERRAR SESION
-      </div>
+      <span>|&nbsp;</span>
+      <Link className="purple-hover">
+        <strong onClick={() => signOut().finally(window.location.reload())}>
+          LOG OUT
+        </strong>
+      </Link>
     </div>
   );
 };

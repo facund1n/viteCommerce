@@ -9,7 +9,9 @@ const LogIn = () => {
 
   return (
     <>
-      <Link onClick={() => setShow(true)}>LOG IN</Link>
+      <Link onClick={() => setShow(true)} className="fw-bold purple-hover">
+        LOG IN
+      </Link>
       <div className="mx-1"> | </div>
       <Modal
         show={show}

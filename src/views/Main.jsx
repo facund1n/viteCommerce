@@ -5,8 +5,9 @@ import Container from "react-bootstrap/Container";
 import Footer from "../components/Footer";
 import LogIn from "../components/LogIn";
 import Register from "../components/Register";
+import LogOut from "../components/LogOut";
 
-const Main = ({ addToCart, totalQ, cart }) => {
+const Main = ({ addToCart, totalQ, cart, auth, userLogged }) => {
   return (
     <>
       <NavBar cart={cart} />
@@ -14,8 +15,14 @@ const Main = ({ addToCart, totalQ, cart }) => {
         <Container className="min-vh-100">
           <Header />
           <div className="d-flex flex-row justify-content-end">
-            <LogIn />
-            <Register />
+            {auth ? (
+              <LogOut userLogged={userLogged} />
+            ) : (
+              <>
+                <LogIn />
+                <Register />
+              </>
+            )}
           </div>
           <AllProductsFetch addToCart={addToCart} className="bg-warning" />
         </Container>

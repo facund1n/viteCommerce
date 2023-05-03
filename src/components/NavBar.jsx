@@ -3,11 +3,7 @@ import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
-function BrandExample(
-  {
-    /* data */
-  }
-) {
+function BrandExample({ /* data */ isAdmin }) {
   return (
     <>
       {console.log(/* data */)}
@@ -25,6 +21,13 @@ function BrandExample(
             </Navbar.Brand>
           </Link>
           <Navbar.Text>
+            {isAdmin === "6450494eb499f437fa44e0ed" && (
+              <Link to="/panel">
+                <Button variant="light" className="mx-1">
+                  Administration Panel
+                </Button>
+              </Link>
+            )}
             <Link to="/checkout">
               <Button variant="light">🛒 Cart {/* {`( ${data} )`} */}</Button>
             </Link>

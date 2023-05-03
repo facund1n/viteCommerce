@@ -7,10 +7,10 @@ import LogIn from "../components/LogIn";
 import Register from "../components/Register";
 import LogOut from "../components/LogOut";
 
-const Main = ({ addToCart, totalQ, cart, auth, userLogged }) => {
+const Main = ({ addToCart, totalQ, cart, auth, userLogged, isAdmin }) => {
   return (
     <>
-      <NavBar cart={cart} />
+      <NavBar cart={cart} isAdmin={isAdmin} />
       <Container fluid className="bg-light-gray min-vh-100">
         <Container className="min-vh-100">
           <Header />

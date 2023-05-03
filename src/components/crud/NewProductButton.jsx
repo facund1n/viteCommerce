@@ -1,20 +1,16 @@
-import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { useState } from "react";
+import { Modal, Button, Col } from "react-bootstrap";
 import NewProduct from "./NewProduct";
+import { Link } from "react-router-dom";
 
 const NewProductButton = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   return (
     <>
-      <Button
-        variant="success"
-        size="lg"
-        className="d-block ms-auto m-2"
-        onClick={() => setShow(true)}
-      >
-        New Product
-      </Button>
+      <Col className="text-success text-end fw-bold py-2 my-2">
+        <Link onClick={() => setShow(true)}>NEW PRODUCT</Link>
+      </Col>
       <Modal
         show={show}
         onHide={handleClose}

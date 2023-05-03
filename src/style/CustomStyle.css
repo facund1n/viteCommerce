@@ -55,3 +55,16 @@ a:hover {
     transform: rotateZ(0);
   }
 }
+
+.notification-animation {
+  animation-timing-function: ease-in;
+  animation: notification 0.8s;
+}
+@keyframes notification {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -43,8 +43,16 @@ const DeletePost = ({ data }) => {
         $ <b>{data.price}</b>
       </span>
       <br />
-      {success && <Success>{<span>🛈 {success}</span>}</Success>}
-      {error && <Error>{<span>🛈 {error}</span>}</Error>}
+      {success && (
+        <Success className="notification-animation">
+          {<span>🛈 {success}</span>}
+        </Success>
+      )}
+      {error && (
+        <Error className="notification-animation">
+          {<span>🛈 {error}</span>}
+        </Error>
+      )}
       <br />
       <Button variant="danger" size="lg" onClick={deleteById}>
         DELETE

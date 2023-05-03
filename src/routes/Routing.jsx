@@ -39,11 +39,15 @@ const Routing = ({
 
   useEffect(() => {
     if (isAuth && getUser) {
+      // remove fisrt and last: "", from user name.
+      const user = getUser.slice(1, -1);
       isAuth ? setAuth(true) : setAuth(false);
-      getUser ? setLoggedUserName(getUser) : setLoggedUserName();
+      getUser ? setLoggedUserName(user) : setLoggedUserName();
       console.log("Logeado como: ", userLogged);
     }
   }, [auth, userLogged]);
+
+  const isAdmin = Cookies.get("id");
 
   return (
     <BrowserRouter>
@@ -57,6 +61,7 @@ const Routing = ({
               cart={cart}
               auth={auth}
               userLogged={userLogged}
+              isAdmin={isAdmin}
             />
           }
         />
@@ -88,7 +93,11 @@ const Routing = ({
           path="/user/:id"
           element={<UserPanel auth={auth} userLogged={userLogged} />}
         />
-        <Route path={"/panel"} element={<AllProducts />} />
+        {isAdmin === "6450494eb499f437fa44e0ed" ? (
+          <Route path={"/panel"} element={<AllProducts />} />
+        ) : (
+          <Route path={"/panel"} element={<ErrorPage />} />
+        )}
       </Routes>
     </BrowserRouter>
   );

@@ -189,14 +189,11 @@ export default function EditProduct({ data }) {
         <option value="phones" className="f-black">
           phones
         </option>
-        <option value="pc" className="f-black">
-          pc
+        <option value="computers" className="f-black">
+          computers
         </option>
         <option value="monitors" className="f-black">
           monitors
-        </option>
-        <option value="audio" className="f-black">
-          computers
         </option>
       </Form.Select>
       <Form.Group className="mb-3">
@@ -215,8 +212,16 @@ export default function EditProduct({ data }) {
         ) : null}
       </Form.Group>
       <span>* must fill </span>
-      {success && <Success>{<span>🛈 {success}</span>}</Success>}
-      {error && <Error>{<span>🛈 {error}</span>}</Error>}
+      {success && (
+        <Success className="notification-animation">
+          {<span>🛈 {success}</span>}
+        </Success>
+      )}
+      {error && (
+        <Error className="notification-animation">
+          {<span>🛈 {error}</span>}
+        </Error>
+      )}
       <div className="d-grid gap-2 my-2">
         <Button type="submit" variant="warning">
           <strong>🖉 EDIT</strong>

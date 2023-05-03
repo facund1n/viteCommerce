@@ -6,12 +6,14 @@ import DeleteOneButton from "./DeleteOneButton";
 // 3.3
 
 const PanelProducts = ({ data }) => {
+  //const dateConvert = date.toUTCString();
   return (
     <>
       <ListGroup>
         <ListGroup.Item className="bg-white">
           <Row xs={1} md={4} lg={4} className="align-items-center mx-auto">
             <Col>
+              <span>{data.date}</span>
               <img
                 style={{ height: "120px" }}
                 className="img-fluid"

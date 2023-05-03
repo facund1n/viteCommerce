@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { Success, Error } from "../Common";
 import { useSignIn } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const validationSchema = yup.object({
   email: yup.string().email("Enter valid e-mail").required("Required"),
@@ -25,7 +26,8 @@ export default function LoginForm() {
 
   const onSubmit = async (values) => {
     const response = await axios
-      .post("https://vite-commerce-back-end.vercel.app/login", values)
+      // http://localhost:4000/login local testing
+      .post("http://localhost:4000/login", values)
       .catch((err) => {
         if (err) setError(err.response.data.message);
         setSuccess(false);
@@ -35,16 +37,17 @@ export default function LoginForm() {
       setSuccess(response.data.message);
       formik.resetForm();
       setInterval(() => {
+        singIn({
+          token: response.data.token,
+          expiresIn: 86400,
+          tokenType: "Bearer",
+          //sets cookie w/user.name
+          authState: response.data.name,
+        });
+        Cookies.set("id", response.data.id);
         navigate("/");
         window.location.reload();
-      }, 3500);
-      singIn({
-        token: response.data.token,
-        expiresIn: 86400,
-        tokenType: "Bearer",
-        //sets cookie w/user.name
-        authState: response.data.name,
-      });
+      }, 3000);
     }
   };
 
@@ -95,13 +98,21 @@ export default function LoginForm() {
           </div>
         ) : null}
       </Form.Group>
-      {success && <Success>{<span>🛈 {success}</span>}</Success>}
-      {error && <Error>{<span>🛈 {error}</span>}</Error>}
+      {success && (
+        <Success className="notification-animation">
+          {<span>🛈 {success}</span>}
+        </Success>
+      )}
+      {error && (
+        <Error className="notification-animation">
+          {<span>🛈 {error}</span>}
+        </Error>
+      )}
 
       <Button
         type="submit"
         variant="warning"
-        className="mx-auto w-100 py-2 mt-3"
+        className="mx-auto w-100 py-2 mt-3 "
       >
         <strong>Log in</strong>
       </Button>

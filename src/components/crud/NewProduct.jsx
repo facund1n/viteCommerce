@@ -181,14 +181,11 @@ export default function NewPost() {
           <option value="phones" className="f-black">
             phones
           </option>
-          <option value="pc" className="f-black">
-            pc
-          </option>
-          <option value="monitors" className="f-black">
-            monitors
+          <option value="computers" className="f-black">
+            computers
           </option>
           <option value="audio" className="f-black">
-            computers
+            audio
           </option>
         </Form.Select>
         <Form.Group className="mb-3">

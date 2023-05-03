@@ -61,6 +61,7 @@ const Routing = ({
               cart={cart}
               auth={auth}
               userLogged={userLogged}
+              isAdmin={isAdmin}
             />
           }
         />

@@ -1,6 +1,7 @@
 import { useSignOut } from "react-auth-kit";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import Cookies from "js-cookie";
 
 const LogOut = ({ userLogged }) => {
   const signOut = useSignOut();
@@ -13,7 +14,13 @@ const LogOut = ({ userLogged }) => {
       </Link>
       <span>|&nbsp;</span>
       <Link className="purple-hover">
-        <strong onClick={() => signOut().finally(window.location.reload())}>
+        <strong
+          onClick={() => {
+            {
+              signOut(), Cookies.remove("id"), window.location.reload();
+            }
+          }}
+        >
           LOG OUT
         </strong>
       </Link>

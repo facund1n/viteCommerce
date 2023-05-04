@@ -4,7 +4,7 @@ import AllProductsPanel from "./AllProductsPanel";
 
 // 3.1
 
-const AllProducts = () => {
+const AllProducts = ({ isAdmin }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true); //loader
 
@@ -15,7 +15,15 @@ const AllProducts = () => {
       .then(() => setIsLoading(false));
   }, []);
 
-  return <>{isLoading ? <Loader /> : <AllProductsPanel data={data} />}</>;
+  return (
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <AllProductsPanel data={data} isAdmin={isAdmin} />
+      )}
+    </>
+  );
 };
 
 export default AllProducts;

@@ -4,11 +4,11 @@ import Cart from "../components/Cart";
 import Footer from "../components/Footer";
 import { Container } from "react-bootstrap";
 
-const CartDetail = ({ cart, deleteOne, clearCart, totalP }) => {
+const CartDetail = ({ cart, deleteOne, clearCart, totalP, isAdmin }) => {
   return (
     <>
       {/* ver si se pasa prop cart o data */}
-      <NavBar />
+      <NavBar isAdmin={isAdmin} />
       <Container className="min-vh-100">
         <Cart
           cart={cart}

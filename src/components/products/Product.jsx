@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import ProductCounter from "../ProductCounter";
 import { useState } from "react";
 
-const Product = ({ data, addToCart }) => {
-  const [counter, setCounter] = useState(1);
-
+const Product = ({ data }) => {
   return (
     <Link to={`/products/${data._id}`}>
       <div
@@ -29,13 +27,12 @@ const Product = ({ data, addToCart }) => {
             className="img-fluid mx-auto d-block h-100 zoom"
             src={data.image[0]}
             alt={data.image[0]}
-            style={{ overflow: "hidden " }}
           />
         </div>
 
-        <div className="h-50 d-flex flex-column justify-content-around px-2">
+        <div className="h-50 d-flex flex-column justify-content-around pb-2">
           <hr />
-          <h6 className="fw-bold purple-hover">{data.title}</h6>
+          <h6 className="fw-bold purple-hover px-2">{data.title}</h6>
           <div className="d-flex flex-column align-items-end">
             <span className="fw-bold fs-4 py-1">$ {data.price}</span>
           </div>

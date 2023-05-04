@@ -204,8 +204,16 @@ export default function NewPost() {
           ) : null}
         </Form.Group>
         <span>* must fill </span>
-        {success && <Success>{<span>🛈 {success}</span>}</Success>}
-        {error && <Error>{<span>🛈 {error}</span>}</Error>}
+        {success && (
+          <Success className="notification-animation">
+            {<span>🛈 {success}</span>}
+          </Success>
+        )}
+        {error && (
+          <Error className="notification-animation">
+            {<span>🛈 {error}</span>}
+          </Error>
+        )}
         <div className="d-grid gap-2 my-2">
           <Button type="submit" variant="success">
             <strong>NEW PRODUCT</strong>

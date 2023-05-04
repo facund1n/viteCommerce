@@ -22,7 +22,7 @@ const Product = ({ data }) => {
           overflow: "hidden",
         }}
       >
-        <div className="h-50 ">
+        <div className="h-50">
           <img
             className="img-fluid mx-auto d-block h-100 zoom"
             src={data.image[0]}

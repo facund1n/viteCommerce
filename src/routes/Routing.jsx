@@ -86,6 +86,7 @@ const Routing = ({
               totalP={totalP}
               auth={auth}
               userLogged={userLogged}
+              isAdmin={isAdmin}
             />
           }
         />

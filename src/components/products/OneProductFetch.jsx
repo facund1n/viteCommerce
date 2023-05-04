@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import OneProductDetail from "./OneProductDetail";
 import Loader from "../Loader";
 
-const OneProductFetch = ({ addToCart }) => {
+const OneProductFetch = ({ addToCart, cart }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
@@ -20,7 +20,7 @@ const OneProductFetch = ({ addToCart }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <OneProductDetail data={data} addToCart={addToCart} />
+        <OneProductDetail data={data} addToCart={addToCart} cart={cart} />
       )}
     </>
   );

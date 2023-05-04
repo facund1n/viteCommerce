@@ -15,7 +15,7 @@ const Routing = ({
   deleteOne,
   clearCart,
   modifyCart,
-  totalP,
+  totalPrice,
   totalQ,
   cart,
 }) => {
@@ -58,10 +58,10 @@ const Routing = ({
             <Main
               addToCart={addToCart}
               totalQ={totalQ}
-              cart={cart}
               auth={auth}
               userLogged={userLogged}
               isAdmin={isAdmin}
+              cart={cart}
             />
           }
         />
@@ -73,6 +73,7 @@ const Routing = ({
               addToCart={addToCart}
               auth={auth}
               userLogged={userLogged}
+              cart={cart}
             />
           }
         />
@@ -83,10 +84,10 @@ const Routing = ({
               cart={cart}
               deleteOne={deleteOne}
               clearCart={clearCart}
-              totalP={totalP}
               auth={auth}
               userLogged={userLogged}
               isAdmin={isAdmin}
+              totalPrice={totalPrice}
             />
           }
         />

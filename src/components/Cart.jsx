@@ -5,8 +5,9 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const Cart = ({ cart, deleteOne, clearCart, totalP }) => {
+const Cart = ({ cart, deleteOne, clearCart, totalPrice }) => {
   return (
     <Container>
       <Row>
@@ -37,7 +38,7 @@ const Cart = ({ cart, deleteOne, clearCart, totalP }) => {
                     <Col xs="4">
                       <Button
                         className="d-block ms-auto"
-                        onClick={() => deleteOne(element._id)}
+                        onClick={() => deleteOne(element.id)}
                         variant="danger"
                       >
                         DELETE
@@ -59,9 +60,7 @@ const Cart = ({ cart, deleteOne, clearCart, totalP }) => {
         CLEAR CART
       </Button>
       <ListGroup>
-        <ListGroup.Item>
-          TOTAL: ${cart == [] ? <span>0</span> : totalP(cart)}
-        </ListGroup.Item>
+        <ListGroup.Item>TOTAL: ${totalPrice()}</ListGroup.Item>
       </ListGroup>
     </Container>
   );

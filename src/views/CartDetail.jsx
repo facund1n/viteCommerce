@@ -4,7 +4,7 @@ import Cart from "../components/Cart";
 import Footer from "../components/Footer";
 import { Container } from "react-bootstrap";
 
-const CartDetail = ({ cart, deleteOne, clearCart, totalP, isAdmin }) => {
+const CartDetail = ({ cart, deleteOne, clearCart, isAdmin, totalPrice }) => {
   return (
     <>
       {/* ver si se pasa prop cart o data */}
@@ -14,7 +14,7 @@ const CartDetail = ({ cart, deleteOne, clearCart, totalP, isAdmin }) => {
           cart={cart}
           deleteOne={deleteOne}
           clearCart={clearCart}
-          totalP={totalP}
+          totalPrice={totalPrice}
         />
         <BuyerForm />
       </Container>

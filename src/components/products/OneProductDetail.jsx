@@ -11,12 +11,12 @@ import NavBar from "../NavBar";
 import ProductCounter from "../ProductCounter";
 import { useState } from "react";
 
-const OneProductDetail = ({ data, addToCart }) => {
+const OneProductDetail = ({ data, addToCart, cart }) => {
   const [counter, setCounter] = useState(1);
 
   return (
     <>
-      <NavBar /* data={data}  */ />
+      <NavBar cart={cart} />
       <Container className="py-2">
         <div
           style={{
@@ -73,8 +73,8 @@ const OneProductDetail = ({ data, addToCart }) => {
               <h2 className="text-center">${data.price}</h2>
               <div className="mx-auto">stock: {data.stock}</div>
               <div className="d-flex bg-light">
+                {/* + & - controls */}
                 <ProductCounter setCounter={setCounter} counter={counter} />
-
                 <Button
                   variant="dark"
                   className="d-block mx-auto m-2 w-50"

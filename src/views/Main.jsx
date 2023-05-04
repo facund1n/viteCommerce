@@ -7,7 +7,7 @@ import LogIn from "../components/LogIn";
 import Register from "../components/Register";
 import LogOut from "../components/LogOut";
 
-const Main = ({ addToCart, totalQ, cart, auth, userLogged, isAdmin }) => {
+const Main = ({ totalQ, cart, auth, userLogged, isAdmin }) => {
   return (
     <>
       <NavBar cart={cart} isAdmin={isAdmin} />
@@ -24,7 +24,7 @@ const Main = ({ addToCart, totalQ, cart, auth, userLogged, isAdmin }) => {
               </>
             )}
           </div>
-          <AllProductsFetch addToCart={addToCart} className="bg-warning" />
+          <AllProductsFetch className="bg-warning" />
         </Container>
       </Container>
       <Footer />

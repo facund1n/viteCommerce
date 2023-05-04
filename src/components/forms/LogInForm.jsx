@@ -27,7 +27,7 @@ export default function LoginForm() {
   const onSubmit = async (values) => {
     const response = await axios
       // http://localhost:4000/login local testing
-      .post("http://localhost:4000/login", values)
+      .post("https://vite-commerce-back-end.vercel.app/login", values)
       .catch((err) => {
         if (err) setError(err.response.data.message);
         setSuccess(false);

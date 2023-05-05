@@ -9,19 +9,7 @@ import { useState } from "react";
 const Product = ({ data }) => {
   return (
     <Link to={`/products/${data._id}`}>
-      <div
-        className=""
-        style={{
-          height: "100%",
-          width: "100%",
-          border: "solid 0.1rem lightgray",
-          borderRadius: "3px",
-          padding: "0.3em",
-          margin: "0",
-          textOverflow: "ellipsis",
-          overflow: "hidden",
-        }}
-      >
+      <div className="card-custom">
         <div className="h-50">
           <img
             className="img-fluid mx-auto d-block h-100 zoom"

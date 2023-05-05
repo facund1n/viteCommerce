@@ -3,7 +3,7 @@ import AllProductsGrid from "./AllProductsGrid";
 import Cart from "../Cart";
 import Loader from "../Loader";
 
-const AllProductsFetch = ({ addToCart }) => {
+const AllProductsFetch = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -14,15 +14,7 @@ const AllProductsFetch = ({ addToCart }) => {
       .then(setIsLoading(false));
   }, []);
 
-  return (
-    <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <AllProductsGrid data={data} addToCart={addToCart} />
-      )}
-    </>
-  );
+  return <>{isLoading ? <Loader /> : <AllProductsGrid data={data} />}</>;
 };
 
 export default AllProductsFetch;

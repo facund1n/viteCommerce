@@ -5,64 +5,62 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const Cart = ({ cart, deleteOne, clearCart, totalP }) => {
+const Cart = ({ cart, deleteOne, clearCart, totalPrice }) => {
   return (
     <Container>
-      <Row>
-        {cart.length === 0 || null || undefined ? (
-          <p>
-            Cart is empty,{" "}
+      <Row className="card-custom my-3">
+        {cart.length === 0 ? (
+          <div className="text-center my-5">
+            <p>Cart is empty</p>
             <Link to="/">
-              <strong>take me to buy</strong>
+              <h4>take me to buy!</h4>
             </Link>
-          </p>
+          </div>
         ) : (
           cart.map((element, key) => (
-            <Container className="my-1" key={key}>
-              <ListGroup>
-                <ListGroup.Item>
-                  <Row>
-                    <Col xs="8">
-                      <strong>{element.title}</strong>
-                      <br />
-                      <span>
-                        Price: <strong>$ {element.price}</strong>
-                      </span>
-                      <br />
-                      <span>
-                        Quantity: <strong>{element.q}</strong>
-                      </span>
-                    </Col>
-                    <Col xs="4">
-                      <Button
-                        className="d-block ms-auto"
-                        onClick={() => deleteOne(element._id)}
-                        variant="danger"
-                      >
-                        DELETE
-                      </Button>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              </ListGroup>
-            </Container>
+            <>
+              <Container className="my-2" key={key}>
+                <Col>
+                  <b>{element.title}</b>
+                  <br />
+                  <h5>
+                    Price:{" "}
+                    <strong>
+                      $ {element.price} × {element.q} =
+                    </strong>
+                    <span className="text-muted">
+                      &nbsp;${element.price * element.q}
+                    </span>
+                  </h5>
+                  <div
+                    className="d-block col-sm-2 text-danger fw-bold mb-1 py-2 pointer"
+                    onClick={() => deleteOne(element.id)}
+                    variant="danger"
+                  >
+                    DELETE
+                  </div>
+                  <hr />
+                </Col>
+              </Container>
+            </>
           ))
         )}
+
+        {cart.length !== 0 && (
+          <>
+            <h5
+              /* VER SI SE HACE MODAL PARA CONFIRMAR */
+              className="text-end col-sm-4 ms-auto fw-bold text-danger py-3 pointer"
+              onClick={() => clearCart()}
+            >
+              🗑 CLEAR CART
+            </h5>
+            <h5 className="text-end fw-bold">total: ${totalPrice()}</h5>
+          </>
+        )}
       </Row>
-      <Button
-        /* VER SI SE HACE MODAL PARA CONFIRMAR */
-        className="d-block ms-auto my-1"
-        onClick={() => clearCart()}
-        variant="outline-danger"
-      >
-        CLEAR CART
-      </Button>
-      <ListGroup>
-        <ListGroup.Item>
-          TOTAL: ${cart == [] ? <span>0</span> : totalP(cart)}
-        </ListGroup.Item>
-      </ListGroup>
     </Container>
   );
 };

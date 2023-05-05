@@ -4,13 +4,13 @@ import Col from "react-bootstrap/Col";
 
 import Product from "./Product";
 
-const AllProductsGrid = ({ data, addToCart }) => {
+const AllProductsGrid = ({ data }) => {
   return (
     <Container className="bg-white min-vh-100">
       <Row lg="4" md="3" xs="1" className="my-1">
         {data.map((data) => (
           <Col key={data._id} className="my-1">
-            <Product data={data} addToCart={addToCart} />
+            <Product data={data} />
           </Col>
         ))}
       </Row>

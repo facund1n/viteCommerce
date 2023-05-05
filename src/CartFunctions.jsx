@@ -3,13 +3,11 @@ import { useState, useEffect } from "react";
 
 const CartFunctions = () => {
   const [cart, setCart] = useState([]);
-  const [totalQuantity, setTotalQuantity] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalQuantity, setTotalQuantity] = useState("0");
 
   useEffect(() => {
-    console.log("carrito: ", cart, typeof cart);
-    console.log("total: ", totalPrice);
-  }, [cart, totalPrice]);
+    console.log(totalPrice());
+  }, [cart]);
 
   // i stands for "id"
   const isDuplicate = (i) => {
@@ -35,17 +33,15 @@ const CartFunctions = () => {
     setCart([]);
   };
 
-  const modifyCart = () => {
-    console.log("delete to cart");
-  };
+  const modifyCart = () => {};
 
   const totalQ = (cartPrice) => {
-    const totalQuantity = cart;
+    const totalQuantity = cart.length;
 
-    if (totalQuantity === [] || undefined || null) {
-      setTotalQuantity([]);
-    } else {
+    if (totalQuantity) {
       setTotalQuantity(totalQuantity);
+    } else {
+      setTotalQuantity("0");
     }
     /* (totalQuantity = 0 || undefined || null) ? setQ(0) : ; */
 
@@ -57,14 +53,10 @@ const CartFunctions = () => {
   };
 
   // total Price:
-  const totalP = (cart) => {
+  const totalPrice = () => {
     let price = 0;
-    if (cart === []) {
-      setTotalPrice(price);
-    } else {
-      cart.map((p) => setTotalPrice((price += p.price * p.q)));
-      return totalPrice;
-    }
+    cart.map((p) => (price += p.price * p.q));
+    return price;
   };
 
   return (
@@ -75,7 +67,7 @@ const CartFunctions = () => {
         clearCart={clearCart}
         modifyCart={modifyCart}
         totalQ={totalQ}
-        totalP={totalP}
+        totalPrice={totalPrice}
         cart={cart}
       />
     </div>

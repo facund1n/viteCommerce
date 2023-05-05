@@ -4,10 +4,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
-function BrandExample({ /* data */ isAdmin }) {
+function BrandExample({ cart, isAdmin }) {
   return (
     <>
-      {console.log(/* data */)}
       <Navbar bg="dark" variant="dark" expand="md">
         <Container>
           <Link to="/">
@@ -34,7 +33,7 @@ function BrandExample({ /* data */ isAdmin }) {
                 )}
                 <Link to="/checkout">
                   <Button variant="light">
-                    🛒 Cart {/* {`( ${data} )`} */}
+                    🛒 Cart {cart && `(${cart.length})`}
                   </Button>
                 </Link>
               </Navbar.Text>

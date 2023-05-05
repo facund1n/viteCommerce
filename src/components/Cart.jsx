@@ -52,7 +52,7 @@ const Cart = ({ cart, deleteOne, clearCart, totalPrice }) => {
           <>
             <h5
               /* VER SI SE HACE MODAL PARA CONFIRMAR */
-              className="text-end col-sm-4 ms-auto fw-bold text-danger py-3 pointer"
+              className="text-end col-sm-2 ms-auto fw-bold text-danger py-3 pointer"
               onClick={() => clearCart()}
             >
               🗑 CLEAR CART

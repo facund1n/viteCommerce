@@ -1,8 +1,8 @@
-import BuyerForm from "../components/BuyerForm";
 import NavBar from "../components/NavBar";
 import Cart from "../components/Cart";
 import Footer from "../components/Footer";
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Checkout from "../components/Checkout";
 
 const CartDetail = ({
   cart,
@@ -26,7 +26,7 @@ const CartDetail = ({
           clearCart={clearCart}
           totalPrice={totalPrice}
         />
-        <BuyerForm />
+        <Checkout />
       </Container>
       <Footer />
     </>

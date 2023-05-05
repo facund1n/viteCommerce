@@ -6,6 +6,17 @@
   font-family: "Figtree", sans-serif;
 }
 
+.card-custom {
+  height: 100%;
+  width: 100%;
+  border: solid 0.1rem lightgray;
+  border-radius: 3px;
+  padding: 1em;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .bg-light-gray {
   background-color: #e7e7e7;
 }
@@ -67,4 +78,8 @@ a:hover {
   to {
     opacity: 1;
   }
+}
+
+.pointer {
+  cursor: pointer;
 }

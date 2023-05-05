@@ -83,3 +83,26 @@ a:hover {
 .pointer {
   cursor: pointer;
 }
+
+.click-zoom input[type="checkbox"] {
+  display: none;
+}
+
+.click-zoom img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 100px;
+  transition: transform 0.25s ease;
+  cursor: zoom-in;
+}
+
+.click-zoom input[type="checkbox"]:checked ~ img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: scale(3);
+  cursor: zoom-out;
+}

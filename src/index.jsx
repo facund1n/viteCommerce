@@ -6,6 +6,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "./CartFunctions";
 import CartFunctions from "./CartFunctions";
 import { AuthProvider } from "react-auth-kit";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

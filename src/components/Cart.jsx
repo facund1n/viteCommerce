@@ -34,31 +34,33 @@ const Cart = ({ cart, deleteOne, clearCart, totalPrice }) => {
                       &nbsp;${element.price * element.q}
                     </span>
                   </h5>
+                </Col>
+                <Col xs={2} lg={1}>
                   <div
-                    className="d-block col-sm-2 text-danger fw-bold mb-1 py-2 pointer"
+                    className="d-block text-danger fw-bold  mb-1 py-2 pointer"
                     onClick={() => deleteOne(element.id)}
                     variant="danger"
                   >
                     DELETE
                   </div>
-                  <hr />
                 </Col>
+                <hr />
               </Container>
             </>
           ))
         )}
 
         {cart.length !== 0 && (
-          <>
+          <Col xs={5} lg={3} className="ms-auto">
             <h5
               /* VER SI SE HACE MODAL PARA CONFIRMAR */
-              className="text-end col-sm-2 ms-auto fw-bold text-danger py-3 pointer"
+              className="text-end fw-bold text-danger py-3 pointer"
               onClick={() => clearCart()}
             >
               🗑 CLEAR CART
             </h5>
             <h5 className="text-end fw-bold">total: ${totalPrice()}</h5>
-          </>
+          </Col>
         )}
       </Row>
     </Container>

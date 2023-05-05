@@ -12,14 +12,26 @@ import ProductCounter from "../ProductCounter";
 import { useState } from "react";
 
 import Gallery from "./Gallery";
+import Footer from "../Footer";
 
-const OneProductDetail = ({ data, addToCart, cart }) => {
+const OneProductDetail = ({ data, addToCart, cart, auth }) => {
   const [counter, setCounter] = useState(1);
 
   return (
     <>
       <NavBar cart={cart} />
-      <Container className="py-2 ">
+      <Container className="pb-2">
+        {!auth && (
+          <div className="text-center my-4">
+            <p>Please log in or register to shop</p>
+            <Link to="/login">
+              <h4 className="purple-hover">Log in</h4>
+            </Link>
+            <Link to="/register">
+              <h4 className="purple-hover">Register</h4>
+            </Link>
+          </div>
+        )}
         <div className="card-custom min-vh-100">
           <Row lg={12} md={12} xs={1}>
             <Col className="py-4" lg={6}>
@@ -36,32 +48,35 @@ const OneProductDetail = ({ data, addToCart, cart }) => {
                 <h2 className="text-end fw-bold m-3">${data.price}</h2>
                 <div className="text-end m-3">stock: {data.stock}</div>
                 {/* + & - controls */}
-                <Col className="d-flex ">
-                  <ProductCounter setCounter={setCounter} counter={counter} />
-                  <Button
-                    variant="dark"
-                    className="d-block mx-auto m-2 w-50"
-                    onClick={() =>
-                      addToCart({
-                        id: data._id,
-                        title: data.title,
-                        price: data.price,
-                        q: counter,
-                      })
-                    }
-                  >
-                    ADD TO{" "}
-                    <FontAwesomeIcon
-                      icon={faCartPlus}
-                      style={{ color: "#18c944" }}
-                    />
-                  </Button>
-                </Col>
+                {auth && (
+                  <Col className="d-flex ">
+                    <ProductCounter setCounter={setCounter} counter={counter} />
+                    <Button
+                      variant="dark"
+                      className="d-block mx-auto m-2 w-50"
+                      onClick={() =>
+                        addToCart({
+                          id: data._id,
+                          title: data.title,
+                          price: data.price,
+                          q: counter,
+                        })
+                      }
+                    >
+                      ADD TO{" "}
+                      <FontAwesomeIcon
+                        icon={faCartPlus}
+                        style={{ color: "#18c944" }}
+                      />
+                    </Button>
+                  </Col>
+                )}
               </div>
             </Col>
           </Row>
         </div>
       </Container>
+      <Footer />
     </>
   );
 };

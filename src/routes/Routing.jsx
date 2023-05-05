@@ -9,6 +9,8 @@ import AllProducts from "../components/crud/AllProducts";
 import UserPanel from "../components/UserPanel";
 
 import Cookies from "js-cookie";
+import LogInPage from "../views/LogInPage";
+import RegisterPage from "../views/RegisterPage";
 
 const Routing = ({
   addToCart,
@@ -100,6 +102,8 @@ const Routing = ({
         ) : (
           <Route path={"/panel"} element={<ErrorPage />} />
         )}
+        <Route path={"/login"} element={<LogInPage />} />
+        <Route path={"/register"} element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );

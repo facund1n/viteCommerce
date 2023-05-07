@@ -8,7 +8,14 @@ const Gallery = ({ data }) => {
     customPaging: function (i) {
       return (
         <a>
-          <img src={data.image[i]} style={{ height: "100%", width: "100%" }} />
+          <img
+            src={data.image[i]}
+            style={{
+              marginTop: "2rem",
+              width: "100%",
+              height: "100%",
+            }}
+          />
         </a>
       );
     },
@@ -21,7 +28,7 @@ const Gallery = ({ data }) => {
   };
 
   return (
-    <div>
+    <div className="my-4">
       <Slider {...settings}>
         <div>
           <img

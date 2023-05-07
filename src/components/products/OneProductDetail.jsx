@@ -14,12 +14,12 @@ import { useState } from "react";
 import Gallery from "./Gallery";
 import Footer from "../Footer";
 
-const OneProductDetail = ({ data, addToCart, cart, auth }) => {
+const OneProductDetail = ({ data, addToCart, cart, auth, isAdmin }) => {
   const [counter, setCounter] = useState(1);
 
   return (
     <>
-      <NavBar cart={cart} />
+      <NavBar cart={cart} isAdmin={isAdmin} />
       <Container className="pb-2">
         {!auth && (
           <div className="text-center my-4">
@@ -35,6 +35,9 @@ const OneProductDetail = ({ data, addToCart, cart, auth }) => {
         <div className="card-custom min-vh-100">
           <Row lg={12} md={12} xs={1}>
             <Col className="py-4" lg={6}>
+              <div className="text-muted text-center mt-1">
+                {`<`} slide to view {`>`}
+              </div>
               <Gallery data={data} />
             </Col>
             {/* className="d-flex flex-column align-items-center justify-content-around px-5" */}

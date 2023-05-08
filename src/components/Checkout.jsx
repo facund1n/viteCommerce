@@ -24,7 +24,7 @@ export default function Checkout({ cart, userLogged, clearCart }) {
     const response = await axios
       // http://localhost:4000/ local testing
       // https://vite-commerce-back-end.vercel.app/ online back
-      .post("https://vite-commerce-back-end.vercel.app//orders/new ", values)
+      .post("https://vite-commerce-back-end.vercel.app/orders/new ", values)
       .catch((err) => {
         if (err) setError(err.response.data.message);
         setSuccess(false);

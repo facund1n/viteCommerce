@@ -5,9 +5,7 @@ const CartFunctions = () => {
   const [cart, setCart] = useState([]);
   const [totalQuantity, setTotalQuantity] = useState("0");
 
-  useEffect(() => {
-    console.log(totalPrice());
-  }, [cart]);
+  /*  useEffect(() => {}, []); */
 
   // i stands for "id"
   const isDuplicate = (i) => {

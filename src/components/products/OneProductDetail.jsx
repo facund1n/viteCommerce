@@ -32,7 +32,7 @@ const OneProductDetail = ({ data, addToCart, cart, auth, isAdmin }) => {
             </Link>
           </div>
         )}
-        <div className="card-custom min-vh-100">
+        <div className="card-custom min-vh-100 mt-2">
           <Row lg={12} md={12} xs={1}>
             <Col className="py-4" lg={6}>
               <div className="text-muted text-center mt-1">

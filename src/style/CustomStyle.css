@@ -106,3 +106,7 @@ a:hover {
   transform: scale(3);
   cursor: zoom-out;
 }
+
+.bg-yellow {
+  background-color: #ffc107;
+}

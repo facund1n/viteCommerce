@@ -49,7 +49,7 @@ const Routing = ({
     }
   }, [auth, userLogged]);
 
-  const isAdmin = Cookies.get("id");
+  const userId = Cookies.get("id");
 
   return (
     <BrowserRouter>
@@ -62,7 +62,7 @@ const Routing = ({
               totalQ={totalQ}
               auth={auth}
               userLogged={userLogged}
-              isAdmin={isAdmin}
+              userId={userId}
               cart={cart}
             />
           }
@@ -76,7 +76,7 @@ const Routing = ({
               auth={auth}
               userLogged={userLogged}
               cart={cart}
-              isAdmin={isAdmin}
+              userId={userId}
             />
           }
         />
@@ -89,16 +89,18 @@ const Routing = ({
               clearCart={clearCart}
               auth={auth}
               userLogged={userLogged}
-              isAdmin={isAdmin}
+              userId={userId}
               totalPrice={totalPrice}
             />
           }
         />
         <Route
-          path="/user/:id"
-          element={<UserPanel auth={auth} userLogged={userLogged} />}
+          path={`/user/${userId}`}
+          element={
+            <UserPanel auth={auth} userLogged={userLogged} userId={userId} />
+          }
         />
-        {isAdmin === "6450494eb499f437fa44e0ed" ? (
+        {userId === "6450494eb499f437fa44e0ed" ? (
           <Route path={"/panel"} element={<AllProducts />} />
         ) : (
           <Route path={"/panel"} element={<ErrorPage />} />

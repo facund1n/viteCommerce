@@ -7,7 +7,7 @@ const CartDetail = ({
   cart,
   deleteOne,
   clearCart,
-  isAdmin,
+  userId,
   totalPrice,
   auth,
   userLogged,
@@ -15,7 +15,7 @@ const CartDetail = ({
   return (
     <>
       {/* ver si se pasa prop cart o data */}
-      <NavBar isAdmin={isAdmin} cart={cart} />
+      <NavBar userId={userId} cart={cart} />
       <Container className="min-vh-100">
         <Cart
           cart={cart}

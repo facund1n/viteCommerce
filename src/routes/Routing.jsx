@@ -97,11 +97,25 @@ const Routing = ({
         <Route
           path={`/user/${userId}`}
           element={
-            <UserPanel auth={auth} userLogged={userLogged} userId={userId} />
+            <UserPanel
+              auth={auth}
+              userLogged={userLogged}
+              userId={userId}
+              cart={cart}
+            />
           }
         />
         {userId === "6450494eb499f437fa44e0ed" ? (
-          <Route path={"/panel"} element={<AllProducts />} />
+          <Route
+            path={"/panel"}
+            element={
+              <AllProducts
+                auth={auth}
+                userLogged={userLogged}
+                userId={userId}
+              />
+            }
+          />
         ) : (
           <Route path={"/panel"} element={<ErrorPage />} />
         )}

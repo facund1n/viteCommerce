@@ -6,21 +6,13 @@ import Footer from "../components/Footer";
 import LogIn from "../components/LogIn";
 import Register from "../components/Register";
 import LogOut from "../components/LogOut";
+import LogInOutInterface from "../components/LogInOutInterface";
 
 const Main = ({ totalQ, cart, auth, userLogged, userId }) => {
   return (
     <>
       <NavBar cart={cart} userId={userId} />
-      {auth ? (
-        <LogOut userLogged={userLogged} userId={userId} />
-      ) : (
-        <div className="py-3 bg-yellow">
-          <Container className="d-flex flex-row justify-content-end">
-            <LogIn />
-            <Register />
-          </Container>
-        </div>
-      )}
+      <LogInOutInterface auth={auth} userLogged={userLogged} userId={userId} />
       <Container fluid className="bg-light-gray min-vh-100">
         <Header />
         <AllProductsFetch className="bg-warning" />

@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
+import Badge from "react-bootstrap/Badge";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
@@ -26,14 +27,15 @@ function BrandExample({ cart, userId }) {
               <Navbar.Text>
                 {userId === "6450494eb499f437fa44e0ed" && (
                   <Link to="/panel">
-                    <Button variant="light" className="mx-1">
+                    <Button variant="outline-light" className="mx-1">
                       Administration Panel
                     </Button>
                   </Link>
                 )}
                 <Link to="/checkout">
-                  <Button variant="light">
-                    🛒 Cart {cart && `(${cart.length})`}
+                  <Button variant="outline-warning ">
+                    🛒cart{" "}
+                    <span className="badge">{cart && `${cart.length}`}</span>
                   </Button>
                 </Link>
               </Navbar.Text>

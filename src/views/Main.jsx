@@ -7,25 +7,23 @@ import LogIn from "../components/LogIn";
 import Register from "../components/Register";
 import LogOut from "../components/LogOut";
 
-const Main = ({ totalQ, cart, auth, userLogged, isAdmin }) => {
+const Main = ({ totalQ, cart, auth, userLogged, userId }) => {
   return (
     <>
-      <NavBar cart={cart} isAdmin={isAdmin} />
+      <NavBar cart={cart} userId={userId} />
+      {auth ? (
+        <LogOut userLogged={userLogged} userId={userId} />
+      ) : (
+        <div className="py-3 bg-yellow">
+          <Container className="d-flex flex-row justify-content-end">
+            <LogIn />
+            <Register />
+          </Container>
+        </div>
+      )}
       <Container fluid className="bg-light-gray min-vh-100">
-        <Container className="min-vh-100">
-          <Header />
-          <div className="d-flex flex-row justify-content-end">
-            {auth ? (
-              <LogOut userLogged={userLogged} />
-            ) : (
-              <>
-                <LogIn />
-                <Register />
-              </>
-            )}
-          </div>
-          <AllProductsFetch className="bg-warning" />
-        </Container>
+        <Header />
+        <AllProductsFetch className="bg-warning" />
       </Container>
       <Footer />
     </>

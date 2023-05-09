@@ -14,12 +14,12 @@ import { useState } from "react";
 import Gallery from "./Gallery";
 import Footer from "../Footer";
 
-const OneProductDetail = ({ data, addToCart, cart, auth, isAdmin }) => {
+const OneProductDetail = ({ data, addToCart, cart, auth, userId }) => {
   const [counter, setCounter] = useState(1);
 
   return (
     <>
-      <NavBar cart={cart} isAdmin={isAdmin} />
+      <NavBar cart={cart} userId={userId} />
       <Container className="pb-2">
         {!auth && (
           <div className="text-center my-4">

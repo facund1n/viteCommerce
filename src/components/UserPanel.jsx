@@ -1,30 +1,23 @@
 import Footer from "../components/Footer";
-
-import { Container } from "react-bootstrap";
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import NavBar from "../components/NavBar";
 /* import LikedButton from "./LikedButton";
 import SavedButton from "./SavedButton";
 import AllPosts from "../CRUD/AllPosts";
 import NewPostButton from "../CRUD/NewPostButton"; */
 
-const UserPanel = ({ userLogged }) => {
+const UserPanel = ({ userLogged, userId }) => {
   return (
     <>
+      <NavBar userId={userId} />
       <Container className="px-0 d-flex flex-column min-vh-100">
-        {/*         {userLogged !== "admin" ? (
-          <SavedButton userLogged={userLogged} />
-        ) : (
-          <span></span>
-        )}
-        {userLogged !== "admin" ? (
-          <LikedButton userLogged={userLogged} />
-        ) : (
-          <span></span>
-        )}
-        <Container>
-          {userLogged === "admin" ? <NewPostButton /> : <span></span>}
-          {userLogged === "admin" ? <AllPosts /> : <span></span>}
-        </Container> */}
+        <Col>
+          Profile
+          <br />
+          Orders
+        </Col>
       </Container>
       <Footer />
     </>

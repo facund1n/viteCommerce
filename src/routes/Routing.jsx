@@ -11,6 +11,8 @@ import UserPanel from "../components/UserPanel";
 import Cookies from "js-cookie";
 import LogInPage from "../views/LogInPage";
 import RegisterPage from "../views/RegisterPage";
+import Orders from "../components/orders/OrdersPanel";
+import OrdersFetch from "../components/orders/OrdersFetch";
 
 const Routing = ({
   addToCart,
@@ -98,6 +100,17 @@ const Routing = ({
           path={`/user/${userId}`}
           element={
             <UserPanel
+              auth={auth}
+              userLogged={userLogged}
+              userId={userId}
+              cart={cart}
+            />
+          }
+        />
+        <Route
+          path={`/orders/${userId}`}
+          element={
+            <OrdersFetch
               auth={auth}
               userLogged={userLogged}
               userId={userId}

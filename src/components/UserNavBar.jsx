@@ -15,27 +15,16 @@ function BrandExample({ cart, userId }) {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.2">Orders</NavDropdown.Item>
+                <NavDropdown.Item href={`/orders/${userId}`}>
+                  Orders
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Profile</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
                   Separated link
                 </NavDropdown.Item>
               </NavDropdown>
-              <Navbar.Text>
-                {/*                 {userId === "6450494eb499f437fa44e0ed" && (
-                  <Link to="/panel">
-                    <Button variant="light" className="mx-1">
-                      Administration Panel
-                    </Button>
-                  </Link>
-                )}
-                <Link to="/checkout">
-                  <Button variant="light">
-                    🛒 Cart {cart && `(${cart.length})`}
-                  </Button>
-                </Link> */}
-              </Navbar.Text>
+              <Navbar.Text></Navbar.Text>
             </Nav>
           </Navbar.Collapse>
         </Container>

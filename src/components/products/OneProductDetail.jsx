@@ -14,8 +14,17 @@ import { useState } from "react";
 import Gallery from "./Gallery";
 import Footer from "../Footer";
 
+import { ToastContainer, toast } from "react-toastify";
+
 const OneProductDetail = ({ data, addToCart, cart, auth, userId }) => {
   const [counter, setCounter] = useState(1);
+  const toastSuccess = () => {
+    toast.success("Added to cart!", {
+      position: "bottom-center",
+      hideProgressBar: true,
+      autoClose: 2000,
+    });
+  };
 
   return (
     <>
@@ -57,14 +66,15 @@ const OneProductDetail = ({ data, addToCart, cart, auth, userId }) => {
                     <Button
                       variant="dark"
                       className="d-block mx-auto m-2 w-50"
-                      onClick={() =>
+                      onClick={() => {
                         addToCart({
                           id: data._id,
                           title: data.title,
                           price: data.price,
                           q: counter,
-                        })
-                      }
+                        }),
+                          toastSuccess();
+                      }}
                     >
                       ADD TO{" "}
                       <FontAwesomeIcon
@@ -72,6 +82,7 @@ const OneProductDetail = ({ data, addToCart, cart, auth, userId }) => {
                         style={{ color: "#18c944" }}
                       />
                     </Button>
+                    <ToastContainer hideProgressBar={false} />
                   </Col>
                 )}
               </div>

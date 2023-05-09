@@ -14,13 +14,6 @@ const UserPanel = ({ userLogged, userId, auth, cart }) => {
     <>
       <NavBar userId={userId} cart={cart} />
       <LogInOutInterface auth={auth} userLogged={userLogged} userId={userId} />
-      <Container className="px-0 d-flex flex-column min-vh-100">
-        <Col>
-          Profile
-          <br />
-          Orders
-        </Col>
-      </Container>
       <Footer />
     </>
   );

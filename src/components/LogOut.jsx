@@ -20,7 +20,7 @@ const LogOut = ({ userLogged, userId }) => {
             className="text-dark fw-bold purple-hover"
           >
             <NavDropdown.Item
-              href={`/user/${userId}/orders`}
+              href={`/orders/${userId}`}
               className="purple-hover "
             >
               <strong>Orders</strong>
@@ -46,7 +46,7 @@ const LogOut = ({ userLogged, userId }) => {
           </NavDropdown>
           <Nav.Link
             className="text-dark fw-bold purple-hover"
-            href={`/user/${userId}/orders`}
+            href={`/orders/${userId}`}
           >
             Orders
           </Nav.Link>

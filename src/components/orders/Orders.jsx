@@ -16,6 +16,12 @@ const PanelProducts = ({ data }) => {
           <span>client: {data.userName}</span>
           <br />
           <span>cart: {}</span>
+          <br />
+          {data.isDispatched === false ? (
+            <span>Status: NOT DISPATCHED</span>
+          ) : (
+            <span>Status: DISPATCHED</span>
+          )}
         </ListGroup.Item>
       </ListGroup>
     </>

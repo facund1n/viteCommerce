@@ -4,7 +4,7 @@ import AllProductsPanel from "./AllProductsPanel";
 
 // 3.1
 
-const AllProducts = ({ userId }) => {
+const AllProducts = ({ auth, userLogged, userId }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true); //loader
 
@@ -20,7 +20,12 @@ const AllProducts = ({ userId }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <AllProductsPanel data={data} userId={userId} />
+        <AllProductsPanel
+          data={data}
+          auth={auth}
+          userLogged={userLogged}
+          userId={userId}
+        />
       )}
     </>
   );

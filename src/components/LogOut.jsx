@@ -1,5 +1,6 @@
 import { useSignOut } from "react-auth-kit";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -9,6 +10,7 @@ import Cookies from "js-cookie";
 
 const LogOut = ({ userLogged, userId }) => {
   const signOut = useSignOut();
+  let navigate = useNavigate();
 
   return (
     <div className="py-2 bg-yellow">
@@ -36,7 +38,10 @@ const LogOut = ({ userLogged, userId }) => {
               <strong
                 onClick={() => {
                   {
-                    signOut(), Cookies.remove("id"), window.location.reload();
+                    signOut(),
+                      Cookies.remove("id"),
+                      navigate("/"),
+                      window.location.reload();
                   }
                 }}
               >

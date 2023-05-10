@@ -5,7 +5,7 @@ import DispatchButton from "./DispatchButton";
 import DeleteOneButton from "./DeleteOneButton"; */
 // 3.3
 
-const PanelProducts = ({ data }) => {
+const PanelProducts = ({ data, userId }) => {
   console.log(data);
   //const dateConvert = date.toUTCString();
   return (
@@ -22,7 +22,8 @@ const PanelProducts = ({ data }) => {
             <span>Status: DISPATCHED</span>
           )}
           <br />
-          <DispatchButton />
+          {userId === "6450494eb499f437fa44e0ed" && <DispatchButton />}
+
           <br />
           <br />
           <span>

@@ -12,7 +12,7 @@ const OrdersPanel = ({ data, auth, userLogged, userId }) => {
       <Container className="mt-2">
         <ListGroup>
           {data.map((data) => (
-            <Orders data={data} key={data._id} />
+            <Orders data={data} key={data._id} userId={userId} />
           ))}
         </ListGroup>
       </Container>

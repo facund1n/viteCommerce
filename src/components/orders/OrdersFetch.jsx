@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import OrdersPanel from "./OrdersPanel";
 
-const OrdersFetch = ({ userId }) => {
+const OrdersFetch = ({ userId, auth, userLogged }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -14,7 +14,20 @@ const OrdersFetch = ({ userId }) => {
       .then(() => setIsLoading(false));
   }, []);
 
-  return <>{isLoading ? <Loader /> : <OrdersPanel data={data} />}</>;
+  return (
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <OrdersPanel
+          data={data}
+          auth={auth}
+          userLogged={userLogged}
+          userId={userId}
+        />
+      )}
+    </>
+  );
 };
 
 export default OrdersFetch;

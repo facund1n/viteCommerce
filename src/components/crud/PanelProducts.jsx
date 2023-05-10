@@ -14,13 +14,16 @@ const PanelProducts = ({ data }) => {
           <Row xs={1} md={4} lg={4} className="align-items-center mx-auto">
             <Col>
               <span>{data.date}</span>
+              <br />
               <img
                 style={{ height: "120px" }}
                 className="img-fluid"
                 src={data.image[0]}
                 alt={data.image[0]}
               />
+              <br />
               <b>ID: {data._id} </b>
+              <br />
               <h5>{data.title}</h5>
               <span className="bg-danger text-white p-1">{data.category}</span>
             </Col>
